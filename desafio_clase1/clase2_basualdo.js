@@ -1,4 +1,4 @@
-const numeroUsuario = parseInt( prompt('Por favor ingresa un número'));
+ const numeroUsuario = parseInt( prompt('Por favor ingresa un número'));
 
 if (numeroUsuario > 1000){
 
@@ -21,8 +21,7 @@ if(segundoNumeroUsuario >= 10 && segundoNumeroUsuario <=50 ){
 
     
 }
-
-
+ 
 
 
 
