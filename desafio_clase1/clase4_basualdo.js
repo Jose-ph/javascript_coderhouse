@@ -31,6 +31,12 @@ function revisarRespuestaUsuario(respuestaUsuario){
 
         asignarTurno();
 
+        cantidadDeTurnosAsignados=  cantidadDeTurnosAsignados + 1;
+
+        alert( "Su tiempo de espera es de " + calcularTiempoDeEspera(cantidadDeTurnosAsignados) + "minutos");
+
+
+
         
 
 
@@ -53,7 +59,7 @@ function revisarRespuestaUsuario(respuestaUsuario){
 
 
 let nuevoTurnoUsuario;
-let cantidadDeTurnos;
+let cantidadDeTurnosAsignados = 0;
 let tiempoDeEspera;
 
 nuevoTurnoUsuario = obtenerTurno();
