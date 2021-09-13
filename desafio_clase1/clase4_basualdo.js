@@ -1,6 +1,6 @@
 //Calculadora de tiempo promedio en relación a la cantidad de turnos asignados.
 
-function calcularTiempoDeEspera(turnosAsignados){
+function calcularTiempoDeEsperaPromedio(turnosAsignados){
 
     
     let promedioEsperaPorTurno = 15;
@@ -33,7 +33,7 @@ function revisarRespuestaUsuario(respuestaUsuario){
 
         cantidadDeTurnosAsignados=  cantidadDeTurnosAsignados + 1;
 
-        alert( "Su tiempo de espera es de " + calcularTiempoDeEspera(cantidadDeTurnosAsignados) + "minutos");
+        alert( "Su tiempo de espera es de " + calcularTiempoDeEsperaPromedio(cantidadDeTurnosAsignados) + "minutos");
 
 
 
@@ -62,9 +62,15 @@ let nuevoTurnoUsuario;
 let cantidadDeTurnosAsignados = 0;
 let tiempoDeEspera;
 
+ do { 
 nuevoTurnoUsuario = obtenerTurno();
 
 revisarRespuestaUsuario(nuevoTurnoUsuario);
+
+ }
+
+ while(nuevoTurnoUsuario.toLowerCase() != "no")
+
 
 
 
