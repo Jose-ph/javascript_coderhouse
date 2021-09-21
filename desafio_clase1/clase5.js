@@ -20,6 +20,8 @@ function asignarTurno(){
 }
 function obtenerTurno(){
 
+   
+
     let nuevoTurno = prompt('Hola para obtener un nuevo turno ingresa Si, para cancelar ingresa No');
 
     return nuevoTurno;
@@ -58,15 +60,42 @@ function revisarRespuestaUsuario(respuestaUsuario){
     }
 }
 
+//Esa clase creará usuarios y guardara nombre dni  y le dira un saludo
+class usuario {
+
+    constructor(nombre,dni){
+
+        this.nombre = nombre;
+        this.dni = parseInt(dni);
+        
+        
+    }
+    //este método le dirá al usuario la info que suministró
+    mostrarDatosUsuario(){
+
+       return console.log(`Los datos ingresados son, nombre: ${this.nombre} y DNI: ${this.dni}`);
+
+    }
+}
 
 let nuevoTurnoUsuario;
 let cantidadDeTurnosAsignados = 0;
 let tiempoDeEspera;
 
- do { 
-nuevoTurnoUsuario = obtenerTurno();
 
-revisarRespuestaUsuario(nuevoTurnoUsuario);
+
+ do { 
+
+    let nombreUsuario = prompt('Por favor ingresa tu nombre');
+    let dniUsuario = Number(prompt('Por favor ingresa tu DNI'));
+
+    let  nuevoUsuario = new usuario(nombreUsuario,dniUsuario)
+
+    nuevoUsuario.mostrarDatosUsuario();
+
+    nuevoTurnoUsuario = obtenerTurno();
+
+    revisarRespuestaUsuario(nuevoTurnoUsuario);
 
  }
 
