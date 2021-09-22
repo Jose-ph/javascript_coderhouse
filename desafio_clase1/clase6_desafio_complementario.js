@@ -118,3 +118,17 @@ for ( let i = 0 ; i< arrayUsuarios.length ;i++){
     console.log(arrayUsuarios[i]);
 }
 
+//Ordenar los usuarios por número de dni
+//obtengo los dni y los ordeno de menor  a mayor
+
+
+let arrayDni = [];
+
+for(let i = 0 ; i< arrayUsuarios.length; i++){
+
+    arrayDni.push(arrayUsuarios[i].dni);
+
+    
+}
+
+console.log(arrayDni.sort((a,b) => (a-b)) );
