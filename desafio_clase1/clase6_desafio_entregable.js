@@ -1,5 +1,6 @@
 //Calculadora de tiempo promedio de espera en relación a la cantidad de turnos asignados.
 
+//Esa función calcula el tiempo de espera en base a la cantidad de turnos asignados.
 function calcularTiempoDeEsperaPromedio(turnosAsignados){
 
     
@@ -10,6 +11,7 @@ function calcularTiempoDeEsperaPromedio(turnosAsignados){
     return resultadoTiempoDeEspera;
 }
 
+//Esta función asigna el turno al usuario
 function asignarTurno(){
 
     let mensajeUsuario = prompt('Perfecto! Tu turno ya está registrado!');
@@ -17,6 +19,8 @@ function asignarTurno(){
     return mensajeUsuario;
 
 }
+
+//Esta función da turno al usuario en base a su respuesta si o no
 function obtenerTurno(){
 
    
@@ -27,6 +31,9 @@ function obtenerTurno(){
 
 }
 
+//Esta función revisa la respuesta del usuario 
+//Si la respuesta es sí le asigna el turno, si es no, detiene el proceso
+//Si la respuesta es diferente a esas opciones le muestra por consola q no entendío la respuesta.
 function revisarRespuestaUsuario(respuestaUsuario){
 
     if (respuestaUsuario.toLowerCase() === "si" ){
@@ -59,7 +66,7 @@ function revisarRespuestaUsuario(respuestaUsuario){
     }
 }
 
-//Esa clase creará usuarios y guardara nombre dni  y le dira un saludo
+//Esta clase creará usuarios y guardara nombre dni  y le dira un saludo
 class usuario {
 
     constructor(nombre,dni){
