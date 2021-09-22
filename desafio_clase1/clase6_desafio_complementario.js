@@ -113,5 +113,8 @@ let arrayUsuarios = [];
  while(nuevoTurnoUsuario.toLowerCase() != "no")
 
 
+for ( let i = 0 ; i< arrayUsuarios.length ;i++){
 
+    console.log(arrayUsuarios[i]);
+}
 
