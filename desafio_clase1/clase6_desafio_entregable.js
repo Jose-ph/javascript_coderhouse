@@ -88,6 +88,9 @@ let nuevoTurnoUsuario;
 let cantidadDeTurnosAsignados = 0;
 let tiempoDeEspera;
 
+//Voy a guardar cada usuario en un array de usuario
+let arrayUsuarios = [];
+
 
 
  do { 
@@ -95,7 +98,9 @@ let tiempoDeEspera;
     let nombreUsuario = prompt('Por favor ingresa tu nombre');
     let dniUsuario = Number(prompt('Por favor ingresa tu DNI'));
 
+    
     let  nuevoUsuario = new usuario(nombreUsuario,dniUsuario)
+    arrayUsuarios.push(nuevoUsuario);
 
     nuevoUsuario.mostrarDatosUsuario();
 
