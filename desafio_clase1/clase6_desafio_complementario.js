@@ -122,7 +122,21 @@ for ( let i = 0 ; i< arrayUsuarios.length ;i++){
 //obtengo los dni y los ordeno de menor  a mayor
 
 
-let arrayDni = [];
+
+
+let ordenadosPorDni = [];
+
+//crea nuevo array igual al original en este caso usando map.
+
+ordenadosPorDni = arrayUsuarios.map(elemento => elemento); 
+
+//usando el metodo sort ordeno de menor a mayor
+ordenadosPorDni.sort((a,b) =>(a.dni - b.dni));
+
+console.log(ordenadosPorDni);
+
+
+/* let arrayDni = [];
 
 for(let i = 0 ; i< arrayUsuarios.length; i++){
 
@@ -131,4 +145,4 @@ for(let i = 0 ; i< arrayUsuarios.length; i++){
     
 }
 
-console.log(arrayDni.sort((a,b) => (a-b)) );
+console.log(arrayDni.sort((a,b) => (a-b)) ); */
