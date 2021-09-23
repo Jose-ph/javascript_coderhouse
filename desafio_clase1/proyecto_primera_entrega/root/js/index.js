@@ -1,16 +1,19 @@
 //Esta función muestra los productos disponibles en el menú
-//para poder ser comprados,
+//para poder ser comprados mediante su id,
 function mostrarMenu (productos,menu){
 
     productos.forEach(producto => {
 
         menu += `
-                ${producto.id} ${producto.nombre}
+                ${producto.id} ${producto.nombre} ${producto.envase} ${producto.peso}
                 
                 `
     });
 
-    return menu+= "Elige un número para comprar ese producto";
+    menu+= "Elige un número para comprar ese producto, o salir para terminar";
+    let opcionUsuario = prompt(menu);
+    return opcionUsuario; 
+    
 }
 
 
@@ -30,5 +33,13 @@ function mostrarMenu (productos,menu){
     const menu  = "Estos son los productos disponibles ";
     
     
+    do{
 
-    console.log(mostrarMenu(productos,menu));
+       let OPCION ;
+        OPCION = mostrarMenu(productos,menu);
+
+
+
+    }
+   
+    while(OPCION != "salir")
