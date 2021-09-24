@@ -8,6 +8,7 @@ function controlarStock(productos,opcionUsuario){
     if (idElegido.stock <= 0){
 
         mensaje = alert("Producto sin Stock");
+        
     }
 
         return mensaje;
