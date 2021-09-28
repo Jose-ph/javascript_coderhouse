@@ -64,7 +64,7 @@ function revisarRespuestaUsuario(opcionUsuario,productos){
     if(coincideId){
 
         console.log(cantidadUsuario = preguntarCantidad());
-        controlarStock(productos,opcionUsuario);
+       controlarStock(productos,opcionUsuario);
         console.log(quitarCantidadAlStock(cantidadUsuario,productos,opcionUsuario));
         console.log(calcularPrecio(cantidadUsuario,productos,opcionUsuario));
        // PreguntarSiQuiereSeguirComprando esta opcion aun no la exploré
