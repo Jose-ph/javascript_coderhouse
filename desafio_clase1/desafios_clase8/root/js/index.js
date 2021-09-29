@@ -83,10 +83,19 @@ function mostrarMenu (productos,menu){
 
     productos.forEach(producto => {
 
-        menu += `
+       /*  menu += `
                 ${producto.id} ${producto.nombre} ${producto.envase} ${producto.peso}
                 
-                `
+                ` */
+
+           menu.innerHTML += ` <ul> 
+               <li>  ${producto.id} ${producto.nombre} ${producto.envase} ${producto.peso} </li>
+
+                </ul>
+                
+                ` 
+
+
     });
 
     menu+= "Elige un número para comprar ese producto, o salir para terminar";
@@ -109,7 +118,8 @@ function mostrarMenu (productos,menu){
 
     
 
-    const menu  = "Estos son los productos disponibles ";
+   /*  const menu  = "Estos son los productos disponibles "; */
+   let menu = document.getElementById('menu-productos');
     let opcion;
     
     
