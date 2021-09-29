@@ -63,17 +63,25 @@ function revisarRespuestaUsuario(opcionUsuario,productos){
 
     if(coincideId){
 
-        console.log(cantidadUsuario = preguntarCantidad());
+        cantidadUsuario = preguntarCantidad();
        controlarStock(productos,opcionUsuario);
-        console.log(quitarCantidadAlStock(cantidadUsuario,productos,opcionUsuario));
-        console.log(calcularPrecio(cantidadUsuario,productos,opcionUsuario));
-       // PreguntarSiQuiereSeguirComprando esta opcion aun no la exploré
+        quitarCantidadAlStock(cantidadUsuario,productos,opcionUsuario);
+        calcularPrecio(cantidadUsuario,productos,opcionUsuario);
+       
 
     }
     else if(opcionUsuario == "salir"){
-        console.log ('Gracias por su compra')
+        const mensajeFinCompra = document.createElement('h2');
+
+        mensajeFinCompra.innerText ='Gracias por su compra';
+
+        document.body.appendChild(mensajeFinCompra);
     }
-    else console.log('La opción ingresada es incorrecta');
+    else{ let mensajeOpcionIncorrecta = document.createElement('h2');
+
+        mensajeOpcionIncorrecta.innerText = 'La opción ingresada es incorrecta';
+        document.body.appendChild(mensajeOpcionIncorrecta);
+    }
 }
 
 //Esta función muestra los productos disponibles en el menú
@@ -81,13 +89,14 @@ function revisarRespuestaUsuario(opcionUsuario,productos){
 
 function mostrarMenu (productos,menu){
 
+    menu.innerHTML = "";
     productos.forEach(producto => {
 
        /*  menu += `
                 ${producto.id} ${producto.nombre} ${producto.envase} ${producto.peso}
                 
-                ` */
-
+                 ` */
+            
            menu.innerHTML += ` <ul> 
                <li>  ${producto.id} ${producto.nombre} ${producto.envase} ${producto.peso} </li>
 
