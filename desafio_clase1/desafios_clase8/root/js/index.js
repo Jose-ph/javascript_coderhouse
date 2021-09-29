@@ -112,6 +112,7 @@ function mostrarMenu (productos,menu){
     const menu  = "Estos son los productos disponibles ";
     let opcion;
     
+    
     alert('Hola! Esta es la Tienda de Miel')
     
     do{
@@ -130,3 +131,18 @@ function mostrarMenu (productos,menu){
     }
    
     while(opcion != "salir")
+
+
+    if (opcion == "salir"){
+
+        let sectionProductos = document.getElementById('listado-productos');
+
+        let listaProductos = document.createElement('ul');
+        
+        let items = document.createElement('li');
+        items.innerText = "Aquí aparecerán los productos seleccionados"
+
+        listaProductos.appendChild(items);
+
+        sectionProductos.appendChild(listaProductos);
+    }
