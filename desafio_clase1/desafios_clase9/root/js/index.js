@@ -129,7 +129,7 @@ productos = [
 let menu = document.getElementById("menu-productos");
 let opcion;
 
-alert("Hola! Esta es la Tienda de Miel");
+//alert("Hola! Esta es la Tienda de Miel");
 
 do {
   opcion = mostrarMenu(productos, menu);
@@ -148,4 +148,26 @@ if (opcion == "salir") {
   listaProductos.appendChild(items);
 
   sectionProductos.appendChild(listaProductos);
+}
+
+
+//Evento botón submit
+
+const botonEnviar = document.querySelector('#btn-enviar');
+
+botonEnviar.onclick = ()=> {
+
+  const nombreUsuario = document.querySelector('#nombre-usuario').value;
+  const apellidoUsuario = document.querySelector('#apellido-usuario').value;
+  const dniUusuario= document.querySelector('#dni-usuario').value;
+  const paisUsuario = document.querySelector('#pais-usuario').value;
+
+  let mensajeBienvenida = document.querySelector('#bienvenida');
+  mensajeBienvenida.textContent = `Hola! ${nombreUsuario} ! esta es la tienda de miel !`;
+
+
+  //enviar todos los datos al sessionstorage
+
+
+
 }
