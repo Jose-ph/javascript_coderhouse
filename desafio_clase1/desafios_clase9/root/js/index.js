@@ -159,7 +159,7 @@ botonEnviar.onclick = ()=> {
 
   const nombreUsuario = document.querySelector('#nombre-usuario').value;
   const apellidoUsuario = document.querySelector('#apellido-usuario').value;
-  const dniUusuario= document.querySelector('#dni-usuario').value;
+  const dniUsuario= document.querySelector('#dni-usuario').value;
   const paisUsuario = document.querySelector('#pais-usuario').value;
 
   let mensajeBienvenida = document.querySelector('#bienvenida');
@@ -167,6 +167,12 @@ botonEnviar.onclick = ()=> {
 
 
   //enviar todos los datos al sessionstorage
+
+    let guardarNombreUsuario = sessionStorage.setItem('nombre',nombreUsuario);
+    let guardarApellidoUsuario = sessionStorage.setItem('apellido',apellidoUsuario);
+    let guardarDniUsuario = sessionStorage.setItem('dni',dniUsuario);
+    let guardarPaisUsuario = sessionStorage.setItem('pais',paisUsuario);
+
 
 
 
