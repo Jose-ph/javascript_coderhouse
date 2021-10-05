@@ -177,3 +177,66 @@ botonEnviar.onclick = ()=> {
 
 
 }
+
+
+// función para crear cards segun los productos
+
+
+let sectionPrueba = document.querySelector('#prueba');
+function crearCards(productos){
+
+  //productos es un array de objetos.
+
+  //let sectionPrueba = document.querySelector('#prueba');
+
+  for(let i = 0 ; i < productos.length ; i++){
+
+
+
+      console.log(Object.keys(productos[i]));
+      console.log(Object.values(productos[i]));
+      
+      
+      let cardDiv = document.createElement('div');
+      cardDiv.setAttribute('class','card');
+      cardDiv.style.width='18rem';
+
+      let imgDiv = document.createElement('img');
+      imgDiv.setAttribute('src','../images/logo3.png');
+      imgDiv.setAttribute('class','card-img-top');
+
+      let cardBodyDiv = document.createElement('div');
+      cardBodyDiv.setAttribute('class','card-body');
+
+      let cardTitulo = document.createElement('h5');
+      cardTitulo.setAttribute('class','card-title');
+      cardTitulo.innerText = 'Card por JS';
+
+      let cardParrafo = document.createElement('p');
+      cardParrafo.setAttribute('class', 'card-text');
+      cardParrafo.textContent = "Texto creado con JS";
+
+      let cardEnlace = document.createElement('a');
+      cardEnlace.setAttribute('class',('btn btn-primary'));
+      cardEnlace.setAttribute('href', "#");
+      cardEnlace.innerText = "Agregar al carrito";
+
+
+
+      // agregar todos los elementos al body div
+
+      cardBodyDiv.appendChild(cardTitulo);
+      cardBodyDiv.appendChild(cardParrafo);
+      cardBodyDiv.appendChild(cardEnlace);
+
+      //agregar elementos al card div principal
+
+      cardDiv.appendChild(imgDiv);
+      cardDiv.appendChild(cardBodyDiv);
+
+      sectionPrueba.appendChild(cardDiv);
+
+
+}
+
+}
