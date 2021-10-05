@@ -210,11 +210,11 @@ function crearCards(productos){
 
       let cardTitulo = document.createElement('h5');
       cardTitulo.setAttribute('class','card-title');
-      cardTitulo.innerText = 'Card por JS';
+      cardTitulo.innerText = `${productos[i].id}-- ${productos[i].nombre}`;
 
       let cardParrafo = document.createElement('p');
       cardParrafo.setAttribute('class', 'card-text');
-      cardParrafo.textContent = "Texto creado con JS";
+      cardParrafo.textContent = ` Precio: $ ${productos[i].precio}-- stock: ${productos[i].stock}`;;
 
       let cardEnlace = document.createElement('a');
       cardEnlace.setAttribute('class',('btn btn-primary'));
