@@ -150,97 +150,79 @@ if (opcion == "salir") {
   sectionProductos.appendChild(listaProductos);
 }
 
-
 //Evento botón submit
 
-const botonEnviar = document.querySelector('#btn-enviar');
+const botonEnviar = document.querySelector("#btn-enviar");
 
-botonEnviar.onclick = ()=> {
+botonEnviar.onclick = () => {
+  const nombreUsuario = document.querySelector("#nombre-usuario").value;
+  const apellidoUsuario = document.querySelector("#apellido-usuario").value;
+  const dniUsuario = document.querySelector("#dni-usuario").value;
+  const paisUsuario = document.querySelector("#pais-usuario").value;
 
-  const nombreUsuario = document.querySelector('#nombre-usuario').value;
-  const apellidoUsuario = document.querySelector('#apellido-usuario').value;
-  const dniUsuario= document.querySelector('#dni-usuario').value;
-  const paisUsuario = document.querySelector('#pais-usuario').value;
-
-  let mensajeBienvenida = document.querySelector('#bienvenida');
+  let mensajeBienvenida = document.querySelector("#bienvenida");
   mensajeBienvenida.textContent = `Hola! ${nombreUsuario} ! esta es la tienda de miel !`;
-
 
   //enviar todos los datos al sessionstorage
 
-    let guardarNombreUsuario = sessionStorage.setItem('nombre',nombreUsuario);
-    let guardarApellidoUsuario = sessionStorage.setItem('apellido',apellidoUsuario);
-    let guardarDniUsuario = sessionStorage.setItem('dni',dniUsuario);
-    let guardarPaisUsuario = sessionStorage.setItem('pais',paisUsuario);
-
-
-
-
-}
-
+  let guardarNombreUsuario = sessionStorage.setItem("nombre", nombreUsuario);
+  let guardarApellidoUsuario = sessionStorage.setItem(
+    "apellido",
+    apellidoUsuario
+  );
+  let guardarDniUsuario = sessionStorage.setItem("dni", dniUsuario);
+  let guardarPaisUsuario = sessionStorage.setItem("pais", paisUsuario);
+};
 
 // función para crear cards segun los productos
 
-
-let sectionPrueba = document.querySelector('#prueba');
-function crearCards(productos){
-
+let sectionPrueba = document.querySelector("#prueba");
+function crearCards(productos) {
   //productos es un array de objetos.
 
   //let sectionPrueba = document.querySelector('#prueba');
 
-  for(let i = 0 ; i < productos.length ; i++){
+  for (let i = 0; i < productos.length; i++) {
+    console.log(Object.keys(productos[i]));
+    console.log(Object.values(productos[i]));
 
+    let cardDiv = document.createElement("div");
+    cardDiv.setAttribute("class", "card");
+    cardDiv.style.width = "18rem";
 
+    let imgDiv = document.createElement("img");
+    imgDiv.setAttribute("src", "../images/logo3.png");
+    imgDiv.setAttribute("class", "card-img-top");
 
-      console.log(Object.keys(productos[i]));
-      console.log(Object.values(productos[i]));
-      
-      
-      let cardDiv = document.createElement('div');
-      cardDiv.setAttribute('class','card');
-      cardDiv.style.width='18rem';
+    let cardBodyDiv = document.createElement("div");
+    cardBodyDiv.setAttribute("class", "card-body");
 
-      let imgDiv = document.createElement('img');
-      imgDiv.setAttribute('src','../images/logo3.png');
-      imgDiv.setAttribute('class','card-img-top');
+    let cardTitulo = document.createElement("h5");
+    cardTitulo.setAttribute("class", "card-title");
+    cardTitulo.innerText = `${productos[i].id}-- ${productos[i].nombre}`;
 
-      let cardBodyDiv = document.createElement('div');
-      cardBodyDiv.setAttribute('class','card-body');
+    let cardParrafo = document.createElement("p");
+    cardParrafo.setAttribute("class", "card-text");
+    cardParrafo.textContent = ` Precio: $ ${productos[i].precio}-- stock: ${productos[i].stock}`;
 
-      let cardTitulo = document.createElement('h5');
-      cardTitulo.setAttribute('class','card-title');
-      cardTitulo.innerText = `${productos[i].id}-- ${productos[i].nombre}`;
+    let cardEnlace = document.createElement("a");
+    cardEnlace.setAttribute("class", "btn btn-primary");
+    cardEnlace.setAttribute("href", "#");
+    cardEnlace.innerText = "Agregar al carrito";
 
-      let cardParrafo = document.createElement('p');
-      cardParrafo.setAttribute('class', 'card-text');
-      cardParrafo.textContent = ` Precio: $ ${productos[i].precio}-- stock: ${productos[i].stock}`;;
+    // agregar todos los elementos al body div
 
-      let cardEnlace = document.createElement('a');
-      cardEnlace.setAttribute('class',('btn btn-primary'));
-      cardEnlace.setAttribute('href', "#");
-      cardEnlace.innerText = "Agregar al carrito";
+    cardBodyDiv.appendChild(cardTitulo);
+    cardBodyDiv.appendChild(cardParrafo);
+    cardBodyDiv.appendChild(cardEnlace);
 
+    //agregar elementos al card div principal
 
+    cardDiv.appendChild(imgDiv);
+    cardDiv.appendChild(cardBodyDiv);
 
-      // agregar todos los elementos al body div
-
-      cardBodyDiv.appendChild(cardTitulo);
-      cardBodyDiv.appendChild(cardParrafo);
-      cardBodyDiv.appendChild(cardEnlace);
-
-      //agregar elementos al card div principal
-
-      cardDiv.appendChild(imgDiv);
-      cardDiv.appendChild(cardBodyDiv);
-
-      sectionPrueba.appendChild(cardDiv);
-
-
-}
-
-  
-
+    sectionPrueba.appendChild(cardDiv);
+  }
 }
 
 crearCards(productos);
