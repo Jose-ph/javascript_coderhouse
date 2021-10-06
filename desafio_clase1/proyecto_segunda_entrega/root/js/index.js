@@ -13,11 +13,11 @@ let opcion;
 
 //alert("Hola! Esta es la Tienda de Miel");
 
-do {
-  opcion = mostrarMenu(productos, menu);
+//do {
+ // opcion = mostrarMenu(productos, menu);
 
-  revisarRespuestaUsuario(opcion, productos);
-} while (opcion != "salir");
+  //revisarRespuestaUsuario(opcion, productos);
+//} while (opcion != "salir");
 
 if (opcion == "salir") {
   let sectionProductos = document.getElementById("listado-productos");
@@ -58,4 +58,4 @@ botonEnviar.onclick = () => {
 
 // función para crear cards segun los productos
 
-let sectionPrueba = document.querySelector("#prueba");
+//let sectionPrueba = document.querySelector("#fila-servicios");//

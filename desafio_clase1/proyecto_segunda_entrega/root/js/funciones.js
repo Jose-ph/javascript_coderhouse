@@ -95,7 +95,7 @@ function mostrarMenu(productos, menu) {
     return opcionUsuario;
   }
 
-  
+  // función para crear cards segun los productos
 
   function crearCards(productos) {
     //productos es un array de objetos.
