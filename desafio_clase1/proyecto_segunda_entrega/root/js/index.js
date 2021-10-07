@@ -1,58 +1,4 @@
-/* 
 
-/*  const menu  = "Estos son los productos disponibles "; */
-/* let menu = document.getElementById("menu-productos");
-let opcion;
-crearCards(productos);
- */
-//alert("Hola! Esta es la Tienda de Miel");
-
-//do {
- // opcion = mostrarMenu(productos, menu);
-
-  //revisarRespuestaUsuario(opcion, productos);
-//} while (opcion != "salir");
-
-/* if (opcion == "salir") {
-  let sectionProductos = document.getElementById("listado-productos");
-
-  let listaProductos = document.createElement("ul");
-
-  let items = document.createElement("li");
-  items.innerText = "Aquí aparecerán los productos seleccionados";
-
-  listaProductos.appendChild(items);
-
-  sectionProductos.appendChild(listaProductos);
-} */
-
-//Evento botón submit
-
-/* const botonEnviar = document.querySelector("#btn-enviar");
-
-botonEnviar.onclick = () => {
-  const nombreUsuario = document.querySelector("#nombre-usuario").value;
-  const apellidoUsuario = document.querySelector("#apellido-usuario").value;
-  const dniUsuario = document.querySelector("#dni-usuario").value;
-  const paisUsuario = document.querySelector("#pais-usuario").value;
-
-  let mensajeBienvenida = document.querySelector("#bienvenida");
-  mensajeBienvenida.textContent = `Hola! ${nombreUsuario} ! esta es la tienda de miel !`;
-
-  //enviar todos los datos al sessionstorage
-
-  let guardarNombreUsuario = sessionStorage.setItem("nombre", nombreUsuario);
-  let guardarApellidoUsuario = sessionStorage.setItem(
-    "apellido",
-    apellidoUsuario
-  );
-  let guardarDniUsuario = sessionStorage.setItem("dni", dniUsuario);
-  let guardarPaisUsuario = sessionStorage.setItem("pais", paisUsuario);
-};
- */
-// función para crear cards segun los productos
-
-//let sectionPrueba = document.querySelector("#fila-servicios");//
  //Esta función avisa cuando el stock llega a cero.
 
 function controlarStock(productos, opcionUsuario) {
@@ -232,6 +178,7 @@ const botonEnviar = document.querySelector("#btn-enviar");
 // función para crear cards segun los productos
 
 let sectionPrueba = document.querySelector("#fila-servicios");
+
 function crearCards(productos) {
   //productos es un array de objetos.
 
@@ -251,6 +198,8 @@ function crearCards(productos) {
 
     let cardBodyDiv = document.createElement("div");
     cardBodyDiv.setAttribute("class", "card-body");
+    //agrego id prueba
+    cardBodyDiv.setAttribute("id",`${productos[i].id}`);
 
     let cardTitulo = document.createElement("h5");
     cardTitulo.setAttribute("class", "card-title");
@@ -283,11 +232,46 @@ function crearCards(productos) {
 crearCards(productos);
 
 let botonAgregarAlCarrito = document.querySelectorAll('.card a');
+let carritoUsuario = [];
+let arrayDeSeleccionados = []; //este array deberia guardar el objeto del producto elegido
 
 botonAgregarAlCarrito.forEach(boton => {
 
   boton.onclick = () => {
+
+    
+
+    let opcionUsuario;
     console.log ('Producto agregado con éxito');
+
+    opcionUsuario = boton.parentElement.id;
+
+    console.log(opcionUsuario);
+    revisarOpcionUsuario(opcionUsuario,productos);
+
+    console.log(arrayDeSeleccionados);
+
+ 
   }
+
+    
   
 });
+
+
+function revisarOpcionUsuario (opcion,productos){
+
+  let coincideId = productos.find((producto) => producto.id == opcion);
+  
+
+  if(coincideId){
+
+  let indice = productos.findIndex(producto => producto.id == opcion);
+    
+    arrayDeSeleccionados.push(productos[indice]);
+
+  }
+
+  return arrayDeSeleccionados;
+}
+
