@@ -132,28 +132,20 @@ let opcion;
 
 //alert("Hola! Esta es la Tienda de Miel");
 
-do {
-  opcion = mostrarMenu(productos, menu);
+//do {
+  //opcion = mostrarMenu(productos, menu);
 
   revisarRespuestaUsuario(opcion, productos);
-} while (opcion != "salir");
+//} while (opcion != "salir");
 
-if (opcion == "salir") {
-  let sectionProductos = document.getElementById("listado-productos");
-
-  let listaProductos = document.createElement("ul");
-
-  let items = document.createElement("li");
-  items.innerText = "Aquí aparecerán los productos seleccionados";
-
-  listaProductos.appendChild(items);
-
-  sectionProductos.appendChild(listaProductos);
-}
+//if (opcion == "salir") {
+  
+  //console.log("saliste");
+//}
 
 //Evento botón submit
 
-const botonEnviar = document.querySelector("#btn-enviar");
+//const botonEnviar = document.querySelector("#btn-enviar");
 
 /* botonEnviar.onclick = () => {
   const nombreUsuario = document.querySelector("#nombre-usuario").value;
