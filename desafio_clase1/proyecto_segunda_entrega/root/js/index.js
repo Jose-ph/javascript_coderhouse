@@ -291,8 +291,6 @@ function contarRepeticiones (array){
 
   console.log(repeticiones[3])
   console.log(repeticiones[4])
- 
-  
 
 
 }
