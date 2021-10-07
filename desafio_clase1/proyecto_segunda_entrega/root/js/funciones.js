@@ -128,6 +128,7 @@ function mostrarMenu(productos, menu) {
       let cardEnlace = document.createElement("a");
       cardEnlace.setAttribute("class", "btn btn-primary");
       cardEnlace.setAttribute("href", "#");
+      cardEnlace.setAttribute("id","carrito");
       cardEnlace.innerText = "Agregar al carrito";
   
       // agregar todos los elementos al body div
@@ -145,3 +146,18 @@ function mostrarMenu(productos, menu) {
     }
   }
   
+
+  //esta funcion guarda los productos en un array 
+
+  function cargarCarrito (producto){
+
+    let carrito = [];
+
+    carrito.push(producto);
+
+    return carrito;
+
+
+
+
+  }
