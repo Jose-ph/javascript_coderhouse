@@ -267,3 +267,32 @@ function revisarOpcionUsuario (opcion,productos){
   return arrayDeSeleccionados;
 }
 
+
+//esta función cuenta las repeticiones en un array
+
+function contarRepeticiones (array){
+
+  let arrayId = [];
+  let repeticiones ={};
+
+  array.forEach(element => {
+
+    arrayId.push( element.id);
+    
+  });
+  
+  for (const num of arrayId) {
+    repeticiones[num] = repeticiones[num] ? repeticiones[num] + 1 : 1;
+  }
+  
+  
+  console.log(repeticiones[1])
+  console.log(repeticiones[2])
+
+  console.log(repeticiones[3])
+  console.log(repeticiones[4])
+ 
+  
+
+
+}
