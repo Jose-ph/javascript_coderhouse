@@ -62,8 +62,8 @@ function revisarRespuestaUsuario(opcionUsuario, productos) {
   } else {
     let mensajeOpcionIncorrecta = document.createElement("h2");
 
-    mensajeOpcionIncorrecta.innerText = "La opción ingresada es incorrecta";
-    document.body.appendChild(mensajeOpcionIncorrecta);
+    //mensajeOpcionIncorrecta.innerText = "La opción ingresada es incorrecta";
+    //document.body.appendChild(mensajeOpcionIncorrecta);
   }
 }
 
@@ -126,46 +126,6 @@ productos = [
   },
 ];
 
-/*  const menu  = "Estos son los productos disponibles "; */
-let menu = document.getElementById("menu-productos");
-let opcion;
-
-//alert("Hola! Esta es la Tienda de Miel");
-
-//do {
-  //opcion = mostrarMenu(productos, menu);
-
-  revisarRespuestaUsuario(opcion, productos);
-//} while (opcion != "salir");
-
-//if (opcion == "salir") {
-  
-  //console.log("saliste");
-//}
-
-//Evento botón submit
-
-//const botonEnviar = document.querySelector("#btn-enviar");
-
-/* botonEnviar.onclick = () => {
-  const nombreUsuario = document.querySelector("#nombre-usuario").value;
-  const apellidoUsuario = document.querySelector("#apellido-usuario").value;
-  const dniUsuario = document.querySelector("#dni-usuario").value;
-  const paisUsuario = document.querySelector("#pais-usuario").value;
-
-  let mensajeBienvenida = document.querySelector("#bienvenida");
-  mensajeBienvenida.textContent = `Hola! ${nombreUsuario} ! esta es la tienda de miel !`;
-
-  //enviar todos los datos al sessionstorage
-
-  let guardarNombreUsuario = sessionStorage.setItem("nombre", nombreUsuario);
-  let guardarApellidoUsuario = sessionStorage.setItem(
-    "apellido",
-    apellidoUsuario
-  );
-  let guardarDniUsuario = sessionStorage.setItem("dni", dniUsuario);
-  let guardarPaisUsuario = sessionStorage.setItem("pais", paisUsuario);
-}; */
 
 // función para crear cards segun los productos
 
@@ -177,8 +137,7 @@ function crearCards(productos) {
   //let sectionPrueba = document.querySelector('#prueba');
 
   for (let i = 0; i < productos.length; i++) {
-    console.log(Object.keys(productos[i]));
-    console.log(Object.values(productos[i]));
+    
 
     let cardDiv = document.createElement("div");
     cardDiv.setAttribute("class", "card");

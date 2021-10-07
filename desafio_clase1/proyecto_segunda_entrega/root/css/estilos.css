@@ -200,3 +200,12 @@ footer a i:hover {
 
     width: 400px;
 }
+
+
+
+/* estilos carrito */
+
+#carrito {
+
+    display: none;
+}
