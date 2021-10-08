@@ -1,5 +1,5 @@
 
-
+/* 
 productos = [
   {
     id: 1,
@@ -35,7 +35,7 @@ productos = [
   },
 ];
 
-
+ */
 
 
 let sectionPrueba = document.querySelector("#fila-servicios");
