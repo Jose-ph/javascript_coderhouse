@@ -131,7 +131,7 @@ productos = [
 
 let sectionPrueba = document.querySelector("#fila-servicios");
 
-function crearCards(productos) {
+function crearCards(productos,seccion) {
   //productos es un array de objetos.
 
   //let sectionPrueba = document.querySelector('#prueba');
@@ -176,31 +176,33 @@ function crearCards(productos) {
     cardDiv.appendChild(imgDiv);
     cardDiv.appendChild(cardBodyDiv);
 
-    sectionPrueba.appendChild(cardDiv);
+    //sectionPrueba.appendChild(cardDiv);
+    seccion.appendChild(cardDiv);
   }
 }
 
-crearCards(productos);
+crearCards(productos,sectionPrueba);
 
 let botonAgregarAlCarrito = document.querySelectorAll('.card a');
 let carritoUsuario = [];
 let arrayDeSeleccionados = []; //este array deberia guardar el objeto del producto elegido
+const sectionCarrito = document.querySelector('#carrito');
 
 botonAgregarAlCarrito.forEach(boton => {
 
   boton.onclick = () => {
-
-    
-
-    let opcionUsuario;
-    console.log ('Producto agregado con éxito');
-
+ 
+    let opcionUsuario;   
     opcionUsuario = boton.parentElement.id;
 
     console.log(opcionUsuario);
+
+     sectionCarrito.innerHTML = ` <img src="../images/cesta-de-la-compra.png" alt="carrito de compras">`;
+
     revisarOpcionUsuario(opcionUsuario,productos);
 
-    console.log(arrayDeSeleccionados);
+    agregarAlCarritoDom(arrayDeSeleccionados,sectionCarrito);
+
 
  
   }
@@ -253,3 +255,17 @@ function contarRepeticiones (array){
 
 
 }
+
+function agregarAlCarritoDom (productosSeleccionados){
+
+    //crearCards(productosSeleccionados,sectionCarrito);
+
+    productosSeleccionados.forEach(producto => {
+
+      
+      
+    });
+
+
+}
+
