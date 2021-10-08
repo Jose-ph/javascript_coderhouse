@@ -1,41 +1,34 @@
-
-
 let sectionPrueba = document.querySelector("#fila-servicios");
 
-crearCards(productos,sectionPrueba);
+crearCards(productos, sectionPrueba);
 
-let botonAgregarAlCarrito = document.querySelectorAll('.card a');
+let botonAgregarAlCarrito = document.querySelectorAll(".card a");
 let carritoUsuario = [];
 let arrayDeSeleccionados = []; //este array  guarda el objeto del producto elegido
-const sectionCarrito = document.querySelector('#carrito');
+const sectionCarrito = document.querySelector("#carrito");
 
-botonAgregarAlCarrito.forEach(boton => {
-
+botonAgregarAlCarrito.forEach((boton) => {
   boton.onclick = () => {
- 
-    let opcionUsuario;   
+    let opcionUsuario;
     opcionUsuario = boton.parentElement.id;
 
     console.log(opcionUsuario);
 
-     sectionCarrito.innerHTML = ` <img src="../images/cesta-de-la-compra.png" alt="carrito de compras">`;
+    sectionCarrito.innerHTML = ` <img src="../images/cesta-de-la-compra.png" alt="carrito de compras">`;
 
-     controlarStock(productos,opcionUsuario);
+    controlarStock(productos, opcionUsuario);
 
-      revisarOpcionUsuario(opcionUsuario,productos);
+    revisarOpcionUsuario(opcionUsuario, productos);
 
-      //quitarCantidadAlStock()
+    //quitarCantidadAlStock()
 
-      agregarAlCarritoDom(arrayDeSeleccionados,sectionCarrito);
+    agregarAlCarritoDom(arrayDeSeleccionados, sectionCarrito);
 
-      //guardar la seleccion del usuario en el local storage
+    //guardar la seleccion del usuario en el local storage
 
-      localStorage.setItem('arrayProductosSeleccionados', JSON.stringify(arrayDeSeleccionados));
-
-  }
- 
-  
+    localStorage.setItem(
+      "arrayProductosSeleccionados",
+      JSON.stringify(arrayDeSeleccionados)
+    );
+  };
 });
-
-
-
