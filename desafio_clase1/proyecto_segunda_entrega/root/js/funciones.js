@@ -56,18 +56,23 @@ function crearCards(productos,seccion) {
 function revisarOpcionUsuario (opcion,productos){
 
   let coincideId = productos.find((producto) => producto.id == opcion);
-  
 
+   
+  
   if(coincideId){
 
-    let indice = productos.findIndex(producto => producto.id == opcion);
+   let indice = productos.findIndex(producto => producto.id == opcion);
+
+   
     
-    
-    console.log( arrayDeSeleccionados.push(productos[indice]));
+     
+    arrayDeSeleccionados.push(productos[indice]);
+
     let quitarStock = productos[indice].stock -= 1;
+    
 
-    let costoProducto = productos[indice].precio; 
-
+    let costoProducto = productos[indice].precio 
+    
     console.log(quitarStock,costoProducto);
 
     controlarStock(productos[indice].stock);
@@ -76,6 +81,7 @@ function revisarOpcionUsuario (opcion,productos){
 
   }
 
+ 
   return arrayDeSeleccionados;
 }
 
