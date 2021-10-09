@@ -60,9 +60,19 @@ function revisarOpcionUsuario (opcion,productos){
 
   if(coincideId){
 
-  let indice = productos.findIndex(producto => producto.id == opcion);
+    let indice = productos.findIndex(producto => producto.id == opcion);
     
-    arrayDeSeleccionados.push(productos[indice]);
+    
+    console.log( arrayDeSeleccionados.push(productos[indice]));
+    let quitarStock = productos[indice].stock -= 1;
+
+    let costoProducto = productos[indice].precio; 
+
+    console.log(quitarStock,costoProducto);
+
+    controlarStock(productos[indice].stock);
+
+
 
   }
 
@@ -109,12 +119,18 @@ function agregarAlCarritoDom (productosSeleccionados){
 
  //Esta función avisa cuando el stock llega a cero.
 
-function controlarStock(productos, opcionUsuario) {
-  let idElegido = productos.find((producto) => producto.id == opcionUsuario);
+function controlarStock(stock) { //productos, opcionUsuario
+  /* let idElegido = productos.find((producto) => producto.id == opcionUsuario);
   let mensaje;
 
   if (idElegido.stock <= 0) {
     mensaje = alert("Producto sin Stock");
+  } */
+
+  let mensaje;
+  if (stock <= 0){
+    mensaje = alert('Producto sin Stock')
+    stock = 0 ;
   }
 
   return mensaje;
