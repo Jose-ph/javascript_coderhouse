@@ -13,7 +13,7 @@ botonAgregarAlCarrito.forEach((boton) => {
   boton.onclick = () => {
 
     let opcionUsuario;
-    let contadorQuitaStock = 0;
+    
     opcionUsuario = boton.parentElement.id;
 
     console.log(opcionUsuario);
