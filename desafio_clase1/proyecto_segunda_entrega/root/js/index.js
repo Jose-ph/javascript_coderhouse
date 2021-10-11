@@ -1,5 +1,5 @@
 let productos = [
-  "1":{
+    {
     id: 1,
     nombre: "Miel Pura",
     peso: "500g",
@@ -42,11 +42,15 @@ let carritoUsuario = [];
 let arrayDeSeleccionados = []; //este array  guarda el objeto del producto elegido
 const sectionCarrito = document.querySelector("#carrito");
 
+let arrayStocks = [];
+ 
+    for(let i=0 ;i<productos.length;i++){
 
+       arrayStocks.push( productos[i].stock);
 
-let productosCOPIA = [...productos];
+    }
+  
 
-let stockDePrueba = [50,10,50,10];
 
 
 
@@ -63,7 +67,7 @@ botonAgregarAlCarrito.forEach((boton) => {
 
     //controlarStock(productos, opcionUsuario);
 
-    revisarOpcionUsuario(opcionUsuario,productosCOPIA);
+    revisarOpcionUsuario(opcionUsuario,productos);
 
     //agregarAlCarritoDom(arrayDeSeleccionados, sectionCarrito);
 
@@ -77,3 +81,6 @@ botonAgregarAlCarrito.forEach((boton) => {
     );
   };
 });
+
+
+

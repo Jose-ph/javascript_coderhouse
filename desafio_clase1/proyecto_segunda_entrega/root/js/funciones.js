@@ -56,7 +56,13 @@ function crearCards(productos,seccion) {
 function revisarOpcionUsuario (opcion,productosCopiados){
 
   let coincideId = productos.find((producto) => producto.id == opcion);
+  let arrayStocks = [];
  
+    for(leti=0 ;i<productos.length;i++){
+
+       arrayStocks.push( productos[i].stock);
+
+    }
 
  
 
@@ -64,7 +70,7 @@ function revisarOpcionUsuario (opcion,productosCopiados){
 
    let indice = productos.findIndex(producto => producto.id == opcion);
 
-    let stockOriginal =productos[indice].stock;
+    let stockOriginal = arrayStocks[indice]
     
     console.log(stockOriginal)
 
