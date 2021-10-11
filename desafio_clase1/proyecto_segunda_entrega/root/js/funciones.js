@@ -56,31 +56,24 @@ function crearCards(productos,seccion) {
 function revisarOpcionUsuario (opcion,productosCopiados){
 
   let coincideId = productos.find((producto) => producto.id == opcion);
-  let arrayStocks = [];
- 
-    for(leti=0 ;i<productos.length;i++){
-
-       arrayStocks.push( productos[i].stock);
-
-    }
-
+  
  
 
   if(coincideId){
 
    let indice = productos.findIndex(producto => producto.id == opcion);
 
-    let stockOriginal = arrayStocks[indice]
+    let stockOriginal = arrayStocks[indice];
     
-    console.log(stockOriginal)
+    console.log(stockOriginal,"stock original");
 
      
     arrayDeSeleccionados.push(productosCopiados[indice]);
 
     let quitarStock = productosCopiados[indice].stock -= 1;
-    
+    let unidadesQuitadasAlStock = stockOriginal- quitarStock;
 
-    let costoProducto = productos[indice].precio ;
+    let costoProducto = productos[indice].precio * unidadesQuitadasAlStock  ;
 
     //let restaStock = quitarStock - stockOriginal;
 
