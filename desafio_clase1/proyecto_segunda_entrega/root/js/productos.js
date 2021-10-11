@@ -1,4 +1,4 @@
-productos = [
+/* let productos = [
     {
       id: 1,
       nombre: "Miel Pura",
@@ -32,3 +32,5 @@ productos = [
       stock: 80,
     },
   ];
+ */
+  

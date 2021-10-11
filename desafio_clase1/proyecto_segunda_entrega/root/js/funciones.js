@@ -53,32 +53,41 @@ function crearCards(productos,seccion) {
 
 //esta funcion revisa la card seleccionada por el usuario
 
-function revisarOpcionUsuario (opcion,productos){
+function revisarOpcionUsuario (opcion,productosCopiados){
 
   let coincideId = productos.find((producto) => producto.id == opcion);
+ 
 
-   
-  
+ 
+
   if(coincideId){
 
    let indice = productos.findIndex(producto => producto.id == opcion);
 
-   
+    let stockOriginal =productos[indice].stock;
     
+    console.log(stockOriginal)
+
      
-    arrayDeSeleccionados.push(productos[indice]);
+    arrayDeSeleccionados.push(productosCopiados[indice]);
 
-    let quitarStock = productos[indice].stock -= 1;
+    let quitarStock = productosCopiados[indice].stock -= 1;
     
 
-    let costoProducto = productos[indice].precio 
-    
-    console.log(quitarStock,costoProducto);
+    let costoProducto = productos[indice].precio ;
+
+    //let restaStock = quitarStock - stockOriginal;
+
+    console.log(productosCopiados[indice].stock, "este es el array que puede cambiar");
+    console.log(quitarStock,"Esta es la cantidad que queda de stock");
+    console.log(costoProducto,"Esto deberia ser el precio a pagar");
+    console.log(stockOriginal,"Este stock no debería cambiar")
 
     controlarStock(productos[indice].stock);
 
+    //stockOriginal=productosModificado[indice].stock
 
-
+    
   }
 
  
