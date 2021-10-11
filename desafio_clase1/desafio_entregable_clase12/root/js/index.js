@@ -83,4 +83,9 @@ botonAgregarAlCarrito.forEach((boton) => {
 });
 
 
+//Prueba de jquery
 
+const saludo = $('body').append ("<h1>Hola este mensaje fue creado mediante jquery!!</h1>");
+
+
+//IDEA poner el form y usar jquery para ir manipulando.
