@@ -95,7 +95,38 @@ let apellidoUsuario = $('#apellido-usuario');
 let dniUsuario = $('#dni-usuario');
 let paisUsuario = $('#pais-usuario');
 let botonEnviar = $('#btn-enviar')
+let datosUsuario = [];
 
 // Se asegura que el DOM esté listo para manipular
 
    $(document).ready(()=>console.log('El DOM está listo'));
+
+
+   botonEnviar.click(() => {
+
+      datosUsuario.push( nombreUsuario.val());
+       datosUsuario.push( apellidoUsuario.val()) ;
+      datosUsuario.push( dniUsuario.val());
+       datosUsuario.push( paisUsuario.val());
+
+      console.log(datosUsuario);
+      
+      //guardar datos en el localStorage
+
+      localStorage.setItem(
+        "datosUsuario",
+        JSON.stringify(datosUsuario)
+      );
+
+        //Obtener los datos y mostrarlos en html
+
+        let datosMostrar = JSON.parse(localStorage.getItem('datosUsuario'));
+
+        $('body').append(`<p>Estos son los datos almacenados:
+                ${datosMostrar[0]}
+                ${datosMostrar[1]}
+                ${datosMostrar[2]}
+                ${datosMostrar[3]}
+        
+        </p>`)
+   })
