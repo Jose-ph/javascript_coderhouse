@@ -89,3 +89,13 @@ const saludo = $('body').append ("<h1>Hola este mensaje fue creado mediante jque
 
 
 //IDEA poner el form y usar jquery para ir manipulando.
+
+let nombreUsuario = $('#nombre-usuario');
+let apellidoUsuario = $('#apellido-usuario');
+let dniUsuario = $('#dni-usuario');
+let paisUsuario = $('#pais-usuario');
+let botonEnviar = $('#btn-enviar')
+
+// Se asegura que el DOM esté listo para manipular
+
+   $(document).ready(()=>console.log('El DOM está listo'));
