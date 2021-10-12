@@ -4,6 +4,10 @@ let botonMostrar = $('#mostrar');
 
 botonMostrar.click(()=>{
 
-    $('#fila-servicios').show();
+    $('#fila-servicios').fadeIn(1000,function(){
+
+        $('#fila-servicios').fadeOut(800);
+
+    });
 
 });
