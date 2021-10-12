@@ -203,9 +203,9 @@ footer a i:hover {
 
 
 
-/* estilos carrito */
+/* Estilo cards animaciones */
 
-/* #carrito {
+.oculto {
 
-   
-} */
+    display:none;
+}
