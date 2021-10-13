@@ -12,10 +12,17 @@ botonMostrar.click(()=>{
 
         $('#img-carrito').css("width", "5%");
 
-        $('#img-carrito').fadeIn().fadeOut();
-       
+       // $('#img-carrito').fadeIn().fadeOut();
+
+        $('#img-carrito').animate({heigth:'300px'},
+
+            "slow",
+            function(){console.log('se terminó la animación')}
+        );
+
 
 
     });
 
+    $('#img-carrito').fadeIn(2000).fadeOut(3000);
 });
