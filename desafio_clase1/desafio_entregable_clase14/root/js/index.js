@@ -82,5 +82,27 @@ botonAgregarAlCarrito.forEach((boton) => {
   };
 });
 
+//IDEA poner el form y usar jquery para ir manipulando.
+
+let nombreUsuario = $('#nombre-usuario');
+let apellidoUsuario = $('#apellido-usuario');
+let dniUsuario = $('#dni-usuario');
+let paisUsuario = $('#pais-usuario');
+let botonEnviar = $('#btn-enviar')
+let datosUsuario = [];
+
+// Se asegura que el DOM esté listo para manipular
+
+   $(document).ready(()=>console.log('El DOM está listo'));
 
 
+   botonEnviar.click(() => {
+
+      datosUsuario.push( nombreUsuario.val());
+       datosUsuario.push( apellidoUsuario.val()) ;
+      datosUsuario.push( dniUsuario.val());
+       datosUsuario.push( paisUsuario.val());
+
+      console.log(datosUsuario);
+   });
+  
