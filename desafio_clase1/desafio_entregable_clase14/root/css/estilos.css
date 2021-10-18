@@ -171,6 +171,23 @@ h1 {
     align-items: center;
     justify-content: center;
 }
+#carrito {
+    animation-duration: 8s;
+    animation-name: slideLeft;
+    animation-iteration-count: infinite;
+}
+
+@keyframes slideLeft {
+    from {
+      margin-left: 0px;
+      
+    }
+  
+    to {
+      margin-left: 1000px;
+      
+    }
+  }
 
 
 
