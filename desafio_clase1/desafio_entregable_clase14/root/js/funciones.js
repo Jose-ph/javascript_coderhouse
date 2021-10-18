@@ -55,11 +55,18 @@ function crearCards(productos,seccion) {
 
 function revisarOpcionUsuario (opcion,productosCopiados){
 
+  //Controlar si el producto ya existe en el arrayeleccionados
+
+  let existeProducto = arrayDeSeleccionados.some((item) =>item.id === opcion);
+
+  
   let coincideId = productos.find((producto) => producto.id == opcion);
   
  
 
   if(coincideId){
+
+   
 
    let indice = productos.findIndex(producto => producto.id == opcion);
 
@@ -87,6 +94,10 @@ function revisarOpcionUsuario (opcion,productosCopiados){
     //stockOriginal=productosModificado[indice].stock
 
     
+  }
+
+  if(existeProducto){
+    alert("Este producto ya existe");
   }
 
  

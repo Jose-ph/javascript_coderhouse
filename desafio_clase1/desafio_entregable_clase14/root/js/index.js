@@ -66,7 +66,7 @@ botonAgregarAlCarrito.forEach((boton) => {
     sectionCarrito.innerHTML = ` <img src="../images/cesta-de-la-compra.png" alt="carrito de compras">`;
 
     //controlarStock(productos, opcionUsuario);
-
+    
     revisarOpcionUsuario(opcionUsuario,productos);
 
     //agregarAlCarritoDom(arrayDeSeleccionados, sectionCarrito);
@@ -81,6 +81,14 @@ botonAgregarAlCarrito.forEach((boton) => {
     );
   };
 });
+
+
+
+
+
+
+
+
 
 //IDEA poner el form y usar jquery para ir manipulando.
 
