@@ -3,6 +3,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
+/* Agrega letra Ultra */
+
+@import url('https://fonts.googleapis.com/css2?family=Slabo+13px&display=swap');
+
+/* Agrega letra bungee */
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
 
 
 /*Agrega reset*/
@@ -131,6 +137,61 @@ footer a i:hover {
     
     color: #f8e12d;
 }
+
+
+/* Estilos tienda */
+
+h1 {
+    font-family: 'Bungee',cursive;
+    font-size: 60px;
+}
+/* Estilos Cards */
+
+
+#fila-servicios{
+
+    display: flex;
+    
+    flex-direction: row;
+    
+    flex-wrap: nowrap;
+   justify-content: space-around;
+     
+
+}
+
+.card {
+  
+        width: 250px !important;
+}
+
+/* Estilos carrito */
+#carrito{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*Estilos para pantalla 768px*/
 
 @media (max-width:768px){
@@ -160,8 +221,18 @@ footer a i:hover {
         top:-110px;
     
     }
-     
+
+    #fila-servicios{
+
+        display: flex;
+        
+        flex-direction: row;
+        
+        flex-wrap: wrap;
+    }
 }
+     
+
 
 
 /* Estilos para pantalla 576px*/
@@ -176,6 +247,15 @@ footer a i:hover {
 
     #nosotros p {
         display: none;
+    }
+
+    #fila-servicios{
+
+        display: flex;
+        
+        flex-direction: row;
+        
+        flex-wrap: wrap;
     }
 }
 
@@ -201,11 +281,3 @@ footer a i:hover {
     width: 400px;
 }
 
-
-
-/* estilos carrito */
-
-/* #carrito {
-
-   
-} */
