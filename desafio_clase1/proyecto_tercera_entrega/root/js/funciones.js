@@ -243,16 +243,7 @@ function mostrarProductosCarrito(){
 
     </div>`
 
-    //cambiarUnidades();
-    //Esto hace q los botones sumen y resten
-
-    $('.sumar').click(()=>{
     
-    });
-    $('.restar').click(()=> {
-      producto.unidadesElegidas -1;
-      
-    });
     
   });
 
@@ -262,13 +253,46 @@ function mostrarProductosCarrito(){
 
 }
 
-function cambiarUnidades(){
+function cambiarUnidades(operacion,idProducto){
 
+  carritoUsuario = carritoUsuario.map((producto)=> {
+
+    let unidadNueva= producto.unidadesElegidas;
+
+      if(producto.id === idProducto){
+
+        if($('.sumar').click()){
+          
+          unidadOriginal++
+
+      } else {
+        if($('.restar').click()){
+
+          unidadOriginal--
+
+        }
+      }
+    
+      return {
+        ...producto,
+          unidadNueva,
+      }
+  }
+
+
+  }
+  );
+
+  actualizarCarrito();
+
+
+}
+
+
+  /* 
   $('.sumar').click(()=>{
     producto.unidadesElegidas + 1;
   });
   $('.restar').click(()=> {
     producto.unidadesElegidas -1;
-  });
-}
-
+  }); */
