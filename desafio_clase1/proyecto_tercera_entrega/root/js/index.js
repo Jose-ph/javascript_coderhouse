@@ -7,6 +7,8 @@ let botonAgregarAlCarrito = document.querySelectorAll(".card a");
 let carritoUsuario = [];
 let arrayDeSeleccionados = []; //este array  guarda el objeto del producto elegido
 
+let opcionUsuario;
+
 const sectionCarrito = document.querySelector("#carrito");
 
 //Guarda stocks de productos
@@ -23,9 +25,10 @@ let arrayStocks = [];
 
 
 botonAgregarAlCarrito.forEach((boton) => {
+
   boton.onclick = () => {
 
-    let opcionUsuario;
+    //let opcionUsuario;
    
     opcionUsuario = boton.parentElement.id;
 

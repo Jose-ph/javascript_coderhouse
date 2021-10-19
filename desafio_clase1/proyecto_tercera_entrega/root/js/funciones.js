@@ -218,26 +218,32 @@ function agregarAlCarrito(idProducto){
    } 
 
    actualizarCarrito();
+   
+   
 
 }
 
 function actualizarCarrito(){
 
   mostrarProductosCarrito();
+  sumarUnidad();
+  
+  //restarUnidad();
   //mostrarTotalGastado();
+  
 }
 
 function mostrarProductosCarrito(){
 
   sectionCarrito.innerHTML ="";
-  carritoUsuario.forEach(producto => {
+  carritoUsuario.forEach(item=> {
 
     
     sectionCarrito.innerHTML += `<div class="card" style="width: 18rem;">
-    <img src="${producto.img}" class="card-img-top">
-    <div class="card-body" id="${producto.id}">
-    <h5 class="card-title">${producto.id}-- Miel Pura</h5>
-    <p class="card-text"> Precio: ${producto.precio}-- Unidades:${producto.unidadesElegidas}</p>
+    <img src="${item.img}" class="card-img-top">
+    <div class="card-body" id="${item.id}">
+    <h5 class="card-title">${item.id}-- Miel Pura</h5>
+    <p class="card-text"> Precio: ${item.precio}-- Unidades:${item.unidadesElegidas}</p>
     <button type="button" class ="sumar">+</button>
 <button type="button" class="restar">-</button>
 
@@ -253,46 +259,73 @@ function mostrarProductosCarrito(){
 
 }
 
-function cambiarUnidades(operacion,idProducto){
 
-  carritoUsuario = carritoUsuario.map((producto)=> {
 
-    let unidadNueva= producto.unidadesElegidas;
 
-      if(producto.id === idProducto){
+function sumarUnidad (){
 
-        if($('.sumar').click()){
-          
-          unidadOriginal++
+  let botonSumar = document.querySelectorAll(".sumar")
 
-      } else {
-        if($('.restar').click()){
+ botonSumar.forEach(boton => {
 
-          unidadOriginal--
+  boton.onclick = () => {
 
-        }
+    carritoUsuario = carritoUsuario.map((item) => {
+
+      let unidades = item.unidadesElegidas;
+
+      if(item.id == boton.parentElement.id){
+        unidades++
       }
-    
+
       return {
-        ...producto,
-          unidadNueva,
+        ...item,
+        unidades
       }
+    })
+    actualizarCarrito();
   }
-
-
-  }
-  );
-
-  actualizarCarrito();
+   
+ });
 
 
 }
 
 
-  /* 
+/* $('.sumar').click(()=>{
+
+  carritoUsuario.map((item)=>{
+    if(item.id == id){
+      item.unidadesElegidas++
+    }
+  })
+}) */
+
+/* function sumarUnidad(idProducto){
+  let unidades;
   $('.sumar').click(()=>{
-    producto.unidadesElegidas + 1;
+
+    
+
+    carritoUsuario.map((item)=>{
+      if(item.id == idProducto){
+        unidades = item.unidadesElegidas++
+      }
+
+      return {
+        ...item,
+        unidades,
+        
+      }
+      
+    })
+      
   });
-  $('.restar').click(()=> {
-    producto.unidadesElegidas -1;
-  }); */
+
+  
+  
+    
+}
+ */
+
+
