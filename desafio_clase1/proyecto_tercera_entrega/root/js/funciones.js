@@ -212,16 +212,41 @@ function agregarAlCarrito(idProducto){
       unidadesElegidas: 1,}
       
       
-      
-      
       );
-    console.log(carritoUsuario);
-  
+    
 
    } 
 
+   actualizarCarrito();
 
 }
 
+function actualizarCarrito(){
+
+  mostrarProductosCarrito();
+  //mostrarTotalGastado();
+}
+
+function mostrarProductosCarrito(){
+
+  sectionCarrito.innerHTML ="";
+  carritoUsuario.forEach(producto => {
+
+    
+    sectionCarrito.innerHTML += `<div class="card" style="width: 18rem;">
+    <img src="${producto.img}" class="card-img-top">
+    <div class="card-body" id="${producto.id}">
+    <h5 class="card-title">${producto.id}-- Miel Pura</h5>
+    <p class="card-text"> Precio: ${producto.precio}-- stock:${producto.stock}</p>
+    <a class="btn btn-primary">Agregar al carrito</a></div>
+    </div>`
+    
+  });
+
+  
+
+
+
+}
 
 
