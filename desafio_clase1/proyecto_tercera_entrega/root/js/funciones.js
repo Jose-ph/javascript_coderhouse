@@ -227,6 +227,7 @@ function actualizarCarrito(){
 
   mostrarProductosCarrito();
   sumarUnidad();
+  restarUnidad();
   
   //restarUnidad();
   //mostrarTotalGastado();
@@ -265,32 +266,60 @@ function mostrarProductosCarrito(){
 function sumarUnidad (){
 
   let botonSumar = document.querySelectorAll(".sumar")
-
+  
  botonSumar.forEach(boton => {
 
   boton.onclick = () => {
 
     carritoUsuario = carritoUsuario.map((item) => {
 
-      let unidades = item.unidadesElegidas;
+      let unidadesElegidas = item.unidadesElegidas;
 
       if(item.id == boton.parentElement.id){
-        unidades++
+        unidadesElegidas++
       }
 
       return {
         ...item,
-        unidades
+        unidadesElegidas,
       }
     })
     actualizarCarrito();
   }
    
- });
+ }); 
 
 
 }
 
+function restarUnidad (){
+
+  let botonRestar = document.querySelectorAll(".restar")
+  
+ botonRestar.forEach(boton => {
+
+  boton.onclick = () => {
+
+    carritoUsuario = carritoUsuario.map((item) => {
+
+      let unidadesElegidas = item.unidadesElegidas;
+
+      if(item.id == boton.parentElement.id){
+        unidadesElegidas--
+      }
+
+      return {
+        ...item,
+        unidadesElegidas,
+      }
+    })
+    actualizarCarrito();
+  }
+   
+ }); 
+
+
+}
 
 /* $('.sumar').click(()=>{
 
