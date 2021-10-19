@@ -229,7 +229,7 @@ function actualizarCarrito(){
   sumarUnidad();
   restarUnidad();
   
-  //restarUnidad();
+  
   //mostrarTotalGastado();
   
 }
