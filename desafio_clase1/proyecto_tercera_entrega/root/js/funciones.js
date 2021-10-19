@@ -291,14 +291,14 @@ function sumarUnidad (){
 
 
 }
-
+//Esta función resta una unidad por cada click
 function restarUnidad (){
 
   let botonRestar = document.querySelectorAll(".restar")
   
  botonRestar.forEach(boton => {
 
-  boton.onclick = () => {
+  boton.onclick = () => { 
 
     carritoUsuario = carritoUsuario.map((item) => {
 
