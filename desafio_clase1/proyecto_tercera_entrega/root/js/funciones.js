@@ -237,9 +237,22 @@ function mostrarProductosCarrito(){
     <img src="${producto.img}" class="card-img-top">
     <div class="card-body" id="${producto.id}">
     <h5 class="card-title">${producto.id}-- Miel Pura</h5>
-    <p class="card-text"> Precio: ${producto.precio}-- stock:${producto.stock}</p>
-    <a class="btn btn-primary">Agregar al carrito</a></div>
+    <p class="card-text"> Precio: ${producto.precio}-- Unidades:${producto.unidadesElegidas}</p>
+    <button type="button" class ="sumar">+</button>
+<button type="button" class="restar">-</button>
+
     </div>`
+
+    //cambiarUnidades();
+    //Esto hace q los botones sumen y resten
+
+    $('.sumar').click(()=>{
+    
+    });
+    $('.restar').click(()=> {
+      producto.unidadesElegidas -1;
+      
+    });
     
   });
 
@@ -249,4 +262,13 @@ function mostrarProductosCarrito(){
 
 }
 
+function cambiarUnidades(){
+
+  $('.sumar').click(()=>{
+    producto.unidadesElegidas + 1;
+  });
+  $('.restar').click(()=> {
+    producto.unidadesElegidas -1;
+  });
+}
 

@@ -40,7 +40,7 @@ botonAgregarAlCarrito.forEach((boton) => {
     
     revisarOpcionUsuario(opcionUsuario,productos);
 
-    cambiarUnidades();
+    
     //agregarAlCarritoDom(arrayDeSeleccionados, sectionCarrito);
 
     
