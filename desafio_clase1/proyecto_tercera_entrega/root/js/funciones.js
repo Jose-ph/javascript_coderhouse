@@ -2,9 +2,7 @@
  // función para crear cards segun los productos 
 // y la sección deseada
 function crearCards(productos,seccion) {
-  //productos es un array de objetos.
-
-  //let sectionPrueba = document.querySelector('#prueba');
+  
 
   for (let i = 0; i < productos.length; i++) {
     
@@ -57,7 +55,7 @@ function revisarOpcionUsuario (opcion,productosCopiados){
 
   //Controlar si el producto ya existe en el arrayeleccionados
 
-  let existeProducto = arrayDeSeleccionados.some((item) =>item.id === opcion);
+  //let existeProducto = arrayDeSeleccionados.some((item) =>item.id === opcion);
 
   
   let coincideId = productos.find((producto) => producto.id == opcion);
@@ -74,7 +72,7 @@ function revisarOpcionUsuario (opcion,productosCopiados){
     
     console.log(stockOriginal,"stock original");
 
-     
+     //Cambiar arrayseleccionados por carrito
     arrayDeSeleccionados.push(productosCopiados[indice]);
 
     let quitarStock = productosCopiados[indice].stock -= 1;
@@ -96,10 +94,10 @@ function revisarOpcionUsuario (opcion,productosCopiados){
     
   }
 
-  if(existeProducto){
+/*   if(existeProducto){
     alert("Este producto ya existe");
   }
-
+ */
  
   return arrayDeSeleccionados;
 }
@@ -190,52 +188,40 @@ function calcularPrecio(cantidadUsuario, productos, opcionUsuario) {
   return precioPagar;
 }
 
-/*Esta funcion revisa la respuesta del usuario y activa las demas funciones
-para poder realizar la compra. */
-function revisarRespuestaUsuario(opcionUsuario, productos) {
-  let cantidadUsuario;
 
-  let coincideId = productos.find((producto) => producto.id == opcionUsuario);
+/* IDEAS PARA EL CARRITO */
 
-  if (coincideId) {
-    cantidadUsuario = preguntarCantidad();
-    controlarStock(productos, opcionUsuario);
-    quitarCantidadAlStock(cantidadUsuario, productos, opcionUsuario);
-    calcularPrecio(cantidadUsuario, productos, opcionUsuario);
-  } else if (opcionUsuario == "salir") {
-    const mensajeFinCompra = document.createElement("h2");
+function agregarAlCarrito(idProducto){
 
-    mensajeFinCompra.innerText = "Gracias por su compra";
+  //revisar si el producto se repite en el carrito
+  let productoRepetido;
 
-    document.body.appendChild(mensajeFinCompra);
-  } else {
-    let mensajeOpcionIncorrecta = document.createElement("h2");
+  productoRepetido = carritoUsuario.some((producto) => producto.id == idProducto);
 
-    //mensajeOpcionIncorrecta.innerText = "La opción ingresada es incorrecta";
-    //document.body.appendChild(mensajeOpcionIncorrecta);
-  }
+   if(productoRepetido){
+
+    alert("Producto repetido");
+
+  }else {
+ 
+    let itemCoincideId = productos.find((producto) => producto.id == idProducto);
+
+    carritoUsuario.push(
+
+      {...itemCoincideId,
+      unidadesElegidas: 1,}
+      
+      
+      
+      
+      );
+    console.log(carritoUsuario);
+  
+
+   } 
+
+
 }
 
-//Esta función muestra los productos disponibles en el menú
-//para poder ser comprados mediante su id,
 
-function mostrarMenu(productos, menu) {
-  menu.innerHTML = "";
-  productos.forEach((producto) => {
-    /*  menu += `
-                ${producto.id} ${producto.nombre} ${producto.envase} ${producto.peso}
-                
-                 ` */
 
-    menu.innerHTML += ` <ul> 
-               <li>  ${producto.id} ${producto.nombre} ${producto.envase} ${producto.peso} </li>
-
-                </ul>
-                
-                `;
-  });
-
-  menu += "Elige un número para comprar ese producto, o salir para terminar";
-  let opcionUsuario = prompt(menu);
-  return opcionUsuario;
-}

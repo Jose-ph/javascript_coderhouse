@@ -1,4 +1,4 @@
-/* let productos = [
+ let productos = [
     {
       id: 1,
       nombre: "Miel Pura",
@@ -6,6 +6,7 @@
       envase: "plástico",
       precio: 250,
       stock: 50,
+      img: "./images/miel_carrito.jpeg"
     },
     {
       id: 2,
@@ -14,6 +15,7 @@
       envase: "vidrio",
       precio: 350,
       stock: 60,
+      img: "./images/miel_carrito.jpeg"
     },
     {
       id: 3,
@@ -22,6 +24,7 @@
       envase: "plástico",
       precio: 500,
       stock: 90,
+      img: "./images/miel_carrito.jpeg"
     },
     {
       id: 4,
@@ -30,7 +33,8 @@
       envase: "vidrio",
       precio: 750,
       stock: 80,
+      img: "./images/miel_carrito.jpeg"
     },
   ];
- */
+ 
   
