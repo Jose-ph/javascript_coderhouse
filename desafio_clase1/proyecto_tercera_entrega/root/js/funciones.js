@@ -200,7 +200,17 @@ function agregarAlCarrito(idProducto){
 
    if(productoRepetido){
 
-    sumarUnidadDesdeBotonOriginal();
+     botonAgregarAlCarrito.forEach(boton => {
+
+      boton.onclick = () =>{
+
+        boton.disabled = true;
+        boton.style.display ="none";
+      }
+       
+     });
+
+   
 
    
 

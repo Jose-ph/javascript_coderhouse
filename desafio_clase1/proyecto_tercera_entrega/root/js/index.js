@@ -43,7 +43,7 @@ botonAgregarAlCarrito.forEach((boton) => {
     
     //revisarOpcionUsuario(opcionUsuario,productos);
 
-
+    boton.style.display ="none";
     
     
 
