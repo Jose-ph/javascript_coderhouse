@@ -41,10 +41,11 @@ botonAgregarAlCarrito.forEach((boton) => {
 
     //controlarStock(productos, opcionUsuario);
     
-    revisarOpcionUsuario(opcionUsuario,productos);
+    //revisarOpcionUsuario(opcionUsuario,productos);
+
 
     
-    //agregarAlCarritoDom(arrayDeSeleccionados, sectionCarrito);
+    
 
     
 

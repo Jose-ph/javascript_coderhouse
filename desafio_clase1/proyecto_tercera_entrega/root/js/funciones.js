@@ -200,7 +200,9 @@ function agregarAlCarrito(idProducto){
 
    if(productoRepetido){
 
-    alert("Producto repetido");
+    sumarUnidadDesdeBotonOriginal();
+
+   
 
   }else {
  
@@ -357,4 +359,34 @@ function restarUnidad (){
 }
  */
 
+function sumarUnidadDesdeBotonOriginal (){
+
+  
+
+    
+    
+   botonAgregarAlCarrito.forEach(boton => {
+  
+    boton.onclick = () => {
+  
+      carritoUsuario = carritoUsuario.map((item) => {
+  
+        let unidadesElegidas = item.unidadesElegidas;
+  
+        if(item.id == boton.parentElement.id && unidadesElegidas < item.stock){
+          unidadesElegidas++
+        }
+  
+        return {
+          ...item,
+          unidadesElegidas,
+        }
+      })
+      actualizarCarrito();
+    }
+     
+   }); 
+  
+  
+  }
 
