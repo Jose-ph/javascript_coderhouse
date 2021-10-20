@@ -60,6 +60,7 @@ botonAgregarAlCarrito.forEach((boton) => {
 
 
 
+
 //IDEA poner el form y usar jquery para ir manipulando.
 
 let nombreUsuario = $('#nombre-usuario');

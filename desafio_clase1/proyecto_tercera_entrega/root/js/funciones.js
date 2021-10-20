@@ -238,11 +238,18 @@ function agregarAlCarrito(idProducto){
 function actualizarCarrito(){
 
   mostrarProductosCarrito();
+
   sumarUnidad();
+
   restarUnidad();
-  
-  
+
+  borrarProductoCarrito();
+
   mostrarTotalGastado();
+
+  mostrarBotonAgregar();
+
+ 
   
 }
 
@@ -457,3 +464,14 @@ function sumarUnidadDesdeBotonOriginal (){
   
   }
 
+  function mostrarBotonAgregar (){
+
+    if(carritoUsuario.length === 0){
+
+      botonAgregarAlCarrito.forEach(boton => {
+
+        boton.style.display = "";
+        
+      });
+    }
+  }
