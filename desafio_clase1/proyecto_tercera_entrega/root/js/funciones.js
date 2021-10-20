@@ -242,9 +242,31 @@ function actualizarCarrito(){
   restarUnidad();
   
   
-  //mostrarTotalGastado();
+  mostrarTotalGastado();
   
 }
+
+function mostrarTotalGastado(){
+
+  let precioTotal = 0 ;
+  let productosTotal = 0 ;
+
+  
+
+  carritoUsuario.forEach(producto => {
+
+    precioTotal += producto.precio * producto.unidadesElegidas;
+
+    productosTotal += producto.unidadesElegidas;
+    
+  });
+
+  seccionMostrarTotal.innerHTML = `<p>La cantidad de productos es : ${productosTotal}
+    y el valor total es  $: ${precioTotal.toFixed(2)}
+  </p>`
+}
+
+
 
 function mostrarProductosCarrito(){
 

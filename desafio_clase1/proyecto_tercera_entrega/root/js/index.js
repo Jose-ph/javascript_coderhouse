@@ -69,6 +69,8 @@ let paisUsuario = $('#pais-usuario');
 let botonEnviar = $('#btn-enviar')
 let datosUsuario = [];
 
+let seccionMostrarTotal = document.querySelector('#total-carrito');
+
 // Se asegura que el DOM esté listo para manipular
 
    $(document).ready(()=>console.log('El DOM está listo'));
