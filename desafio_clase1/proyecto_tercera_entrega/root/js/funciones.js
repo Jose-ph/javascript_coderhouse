@@ -466,6 +466,9 @@ function sumarUnidadDesdeBotonOriginal (){
 
   function mostrarBotonAgregar (){
 
+    /*Esta lógica se puede mejorar
+    recorrer el carrito y habilitar el boton  cuyo id no está. */
+
     if(carritoUsuario.length === 0){
 
       botonAgregarAlCarrito.forEach(boton => {
