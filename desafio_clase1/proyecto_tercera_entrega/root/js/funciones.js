@@ -266,6 +266,40 @@ function mostrarTotalGastado(){
   </p>`
 }
 
+function borrarProductoCarrito(){
+
+  /* carritoUsuario = carritoUsuario.filter((item)=>item.id != id );
+
+  actualizarCarrito(); */
+  
+  let botonEliminar = document.querySelectorAll(".eliminar")
+  
+ botonEliminar.forEach(boton => {
+
+  boton.onclick = () => {
+
+    
+
+      id= boton.parentElement.id;
+      console.log(id);
+
+      carritoUsuario = carritoUsuario.filter((item)=>item.id != id )
+      /* let unidadesElegidas = item.unidadesElegidas;
+
+      if(item.id == boton.parentElement.id && unidadesElegidas < item.stock){
+        unidadesElegidas++
+      }
+
+      return {
+        ...item,
+        unidadesElegidas,
+      } */
+    
+    actualizarCarrito();
+  }
+   
+ }); 
+}
 
 
 function mostrarProductosCarrito(){
@@ -280,7 +314,8 @@ function mostrarProductosCarrito(){
     <h5 class="card-title">${item.id}-- Miel Pura</h5>
     <p class="card-text"> Precio: ${item.precio}-- Unidades:${item.unidadesElegidas}</p>
     <button type="button" class ="sumar">+</button>
-<button type="button" class="restar">-</button>
+    <button type="button" class="restar">-</button>
+    <button type="button" class="btn btn-danger eliminar">X</button>
 
     </div>`
 
