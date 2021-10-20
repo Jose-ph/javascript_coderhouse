@@ -275,7 +275,7 @@ function sumarUnidad (){
 
       let unidadesElegidas = item.unidadesElegidas;
 
-      if(item.id == boton.parentElement.id){
+      if(item.id == boton.parentElement.id && unidadesElegidas < item.stock){
         unidadesElegidas++
       }
 
@@ -304,7 +304,7 @@ function restarUnidad (){
 
       let unidadesElegidas = item.unidadesElegidas;
 
-      if(item.id == boton.parentElement.id){
+      if(item.id == boton.parentElement.id && unidadesElegidas>1){
         unidadesElegidas--
       }
 
