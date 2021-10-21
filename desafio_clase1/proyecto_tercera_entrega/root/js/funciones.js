@@ -249,6 +249,11 @@ function actualizarCarrito(){
 
   mostrarBotonAgregar();
 
+  guardarCarritoUsuario();
+
+  
+  
+
  
   
 }
@@ -478,3 +483,14 @@ function sumarUnidadDesdeBotonOriginal (){
       });
     }
   }
+
+
+  //Esta función guarda el carrito del usuario en el local storage
+  function guardarCarritoUsuario(){
+
+
+    let carritoJson = JSON.stringify(carritoUsuario);
+    localStorage.setItem('carritoUsuario', carritoJson);
+
+  }
+  

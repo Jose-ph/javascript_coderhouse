@@ -4,12 +4,18 @@ let sectionCards = document.querySelector("#fila-servicios");
 crearCards(productos, sectionCards);
 
 let botonAgregarAlCarrito = document.querySelectorAll(".card a");
-let carritoUsuario = [];
+
+
+
+
 let arrayDeSeleccionados = []; //este array  guarda el objeto del producto elegido
 
 let opcionUsuario;
 
 const sectionCarrito = document.querySelector("#carrito");
+
+
+
 
 //Guarda stocks de productos
 let arrayStocks = [];
@@ -20,7 +26,7 @@ let arrayStocks = [];
 
     }
   
-
+    
 
 
 
@@ -46,13 +52,10 @@ botonAgregarAlCarrito.forEach((boton) => {
     boton.style.display ="none";
     
     
-
     
 
   };
 });
-
-
 
 
 
@@ -113,3 +116,7 @@ let seccionMostrarTotal = document.querySelector('#total-carrito');
      
    });
   
+//Estas dos líneas  muestran el carrito guardado en el storage
+ let carritoUsuario = JSON.parse(localStorage.getItem('carritoUsuario')) || [];
+actualizarCarrito();
+ 
