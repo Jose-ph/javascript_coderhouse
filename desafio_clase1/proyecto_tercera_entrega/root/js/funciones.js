@@ -46,116 +46,8 @@ function crearCards(productos, seccion) {
   }
 }
 
-//esta funcion revisa la card seleccionada por el usuario
 
-function revisarOpcionUsuario(opcion, productosCopiados) {
-  //Controlar si el producto ya existe en el arrayeleccionados
-
-  //let existeProducto = arrayDeSeleccionados.some((item) =>item.id === opcion);
-
-  let coincideId = productos.find((producto) => producto.id == opcion);
-
-  if (coincideId) {
-    let indice = productos.findIndex((producto) => producto.id == opcion);
-
-    let stockOriginal = arrayStocks[indice];
-
-    console.log(stockOriginal, "stock original");
-
-    //Cambiar arrayseleccionados por carrito
-    arrayDeSeleccionados.push(productosCopiados[indice]);
-
-    let quitarStock = (productosCopiados[indice].stock -= 1);
-    let unidadesQuitadasAlStock = stockOriginal - quitarStock;
-
-    let costoProducto = productos[indice].precio * unidadesQuitadasAlStock;
-
-    //let restaStock = quitarStock - stockOriginal;
-
-    console.log(
-      productosCopiados[indice].stock,
-      "este es el array que puede cambiar"
-    );
-    console.log(quitarStock, "Esta es la cantidad que queda de stock");
-    console.log(costoProducto, "Esto deberia ser el precio a pagar");
-    console.log(stockOriginal, "Este stock no debería cambiar");
-
-    controlarStock(productos[indice].stock);
-  }
-
-  return arrayDeSeleccionados;
-}
-
-//esta función cuenta las repeticiones en un array
-//para poder descontar del stock
-
-function contarRepeticiones(array) {
-  let arrayId = [];
-  let repeticiones = {};
-
-  array.forEach((element) => {
-    arrayId.push(element.id);
-  });
-
-  for (const num of arrayId) {
-    repeticiones[num] = repeticiones[num] ? repeticiones[num] + 1 : 1;
-  }
-
-  console.log(repeticiones[1]);
-  console.log(repeticiones[2]);
-
-  console.log(repeticiones[3]);
-  console.log(repeticiones[4]);
-}
-
-// esta funcion agrega cards al carrito
-function agregarAlCarritoDom(productosSeleccionados) {
-  crearCards(productosSeleccionados, sectionCarrito);
-}
-
-//Esta función avisa cuando el stock llega a cero.
-
-function controlarStock(stock) {
-  let mensaje;
-  if (stock <= 0) {
-    mensaje = alert("Producto sin Stock");
-    stock = 0;
-  }
-
-  return mensaje;
-}
-
-//Esta función pregunta la cantidad de producto que desea el usuario
-//devuelve dicha cantidad
-function preguntarCantidad() {
-  let cantidadUsuario = prompt("Por favor indique la cantidad de unidades");
-
-  return cantidadUsuario;
-}
-
-/*Esta función quita la cantidad de stock comprado por el usuario
-devuelve la cantidad restante de stock segund el id del producto */
-function quitarCantidadAlStock(cantidadUsuario, productos, opcionUsuario) {
-  let idElegido = productos.find((producto) => producto.id == opcionUsuario);
-
-  return (idElegido.stock -= cantidadUsuario);
-}
-
-/*Esta función calcula el precio  a pagar en base a la cantidad elegida 
-por el usuario devuelve el precio a pagar */
-
-function calcularPrecio(cantidadUsuario, productos, opcionUsuario) {
-  let precioPagar;
-  for (let i = 0; i < productos.length; i++) {
-    if (opcionUsuario == productos[i].id) {
-      precioPagar = cantidadUsuario * productos[i].precio;
-    }
-  }
-
-  return precioPagar;
-}
-
-/* IDEAS PARA EL CARRITO */
+//Esta función agrega los productos al carrito
 
 function agregarAlCarrito(idProducto) {
   //revisar si el producto se repite en el carrito
@@ -183,6 +75,7 @@ function agregarAlCarrito(idProducto) {
   actualizarCarrito();
 }
 
+//Esta funcion muestra el carrito sin recargar la página
 function actualizarCarrito() {
   mostrarProductosCarrito();
 
@@ -201,6 +94,7 @@ function actualizarCarrito() {
   $('#carrito .card').hide().fadeIn(1000);
 }
 
+//Esta función muesrtra el total gastado.
 function mostrarTotalGastado() {
   let precioTotal = 0;
   let productosTotal = 0;
@@ -217,6 +111,8 @@ function mostrarTotalGastado() {
 
   
 }
+
+//Esta funcion borra el producto del carrito
 
 function borrarProductoCarrito() {
   /* carritoUsuario = carritoUsuario.filter((item)=>item.id != id );
@@ -237,6 +133,7 @@ function borrarProductoCarrito() {
   });
 }
 
+//Esta funcion muestra los productos del carrito
 function mostrarProductosCarrito() {
   sectionCarrito.innerHTML = "";
   carritoUsuario.forEach((item) => {
@@ -253,6 +150,8 @@ function mostrarProductosCarrito() {
   });
 }
 
+//Esta funcion  suma una unidad al carrito
+//cada vez que se hace click en "+"
 function sumarUnidad() {
   let botonSumar = document.querySelectorAll(".sumar");
 
@@ -277,6 +176,8 @@ function sumarUnidad() {
     };
   });
 }
+
+
 //Esta función resta una unidad por cada click
 function restarUnidad() {
   let botonRestar = document.querySelectorAll(".restar");
@@ -300,29 +201,7 @@ function restarUnidad() {
   });
 }
 
-function sumarUnidadDesdeBotonOriginal() {
-  botonAgregarAlCarrito.forEach((boton) => {
-    boton.onclick = () => {
-      carritoUsuario = carritoUsuario.map((item) => {
-        let unidadesElegidas = item.unidadesElegidas;
-
-        if (
-          item.id == boton.parentElement.id &&
-          unidadesElegidas < item.stock
-        ) {
-          unidadesElegidas++;
-        }
-
-        return {
-          ...item,
-          unidadesElegidas,
-        };
-      });
-      actualizarCarrito();
-    };
-  });
-}
-
+//Esa función permite volver a comprar al vaciar el carrito
 function mostrarBotonAgregar() {
   /*Esta lógica se puede mejorar
     recorrer el carrito y habilitar el boton  cuyo id no está. */
