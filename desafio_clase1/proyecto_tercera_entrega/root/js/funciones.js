@@ -41,6 +41,8 @@ function crearCards(productos, seccion) {
 
     //sectionPrueba.appendChild(cardDiv);
     seccion.appendChild(cardDiv);
+
+    
   }
 }
 
@@ -195,6 +197,8 @@ function actualizarCarrito() {
   mostrarBotonAgregar();
 
   guardarCarritoUsuario();
+
+  $('#carrito .card').hide().fadeIn(1000);
 }
 
 function mostrarTotalGastado() {
@@ -207,9 +211,11 @@ function mostrarTotalGastado() {
     productosTotal += producto.unidadesElegidas;
   });
 
-  seccionMostrarTotal.innerHTML = `<p>La cantidad de productos es : ${productosTotal}
+  seccionMostrarTotal.innerHTML = `<p class="parrafo">La cantidad de productos es : ${productosTotal}
     y el valor total es  $: ${precioTotal.toFixed(2)}
   </p>`;
+
+  
 }
 
 function borrarProductoCarrito() {

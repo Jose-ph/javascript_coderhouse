@@ -78,3 +78,12 @@ botonEnviar.click(() => {
 //Estas dos líneas  muestran el carrito guardado en el storage
 let carritoUsuario = JSON.parse(localStorage.getItem("carritoUsuario")) || [];
 actualizarCarrito();
+
+
+
+
+
+
+//Prueba animaciones
+
+$('#banner').fadeOut(1000).fadeIn(1000);
