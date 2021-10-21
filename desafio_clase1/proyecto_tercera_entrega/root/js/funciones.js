@@ -1,12 +1,7 @@
-
- // función para crear cards segun los productos 
+// función para crear cards segun los productos
 // y la sección deseada
-function crearCards(productos,seccion) {
-  
-
+function crearCards(productos, seccion) {
   for (let i = 0; i < productos.length; i++) {
-    
-
     let cardDiv = document.createElement("div");
     cardDiv.setAttribute("class", "card");
     cardDiv.style.width = "18rem";
@@ -18,7 +13,7 @@ function crearCards(productos,seccion) {
     let cardBodyDiv = document.createElement("div");
     cardBodyDiv.setAttribute("class", "card-body");
     //agrego id prueba
-    cardBodyDiv.setAttribute("id",`${productos[i].id}`);
+    cardBodyDiv.setAttribute("id", `${productos[i].id}`);
 
     let cardTitulo = document.createElement("h5");
     cardTitulo.setAttribute("class", "card-title");
@@ -51,109 +46,78 @@ function crearCards(productos,seccion) {
 
 //esta funcion revisa la card seleccionada por el usuario
 
-function revisarOpcionUsuario (opcion,productosCopiados){
-
+function revisarOpcionUsuario(opcion, productosCopiados) {
   //Controlar si el producto ya existe en el arrayeleccionados
 
   //let existeProducto = arrayDeSeleccionados.some((item) =>item.id === opcion);
 
-  
   let coincideId = productos.find((producto) => producto.id == opcion);
-  
- 
 
-  if(coincideId){
-
-   
-
-   let indice = productos.findIndex(producto => producto.id == opcion);
+  if (coincideId) {
+    let indice = productos.findIndex((producto) => producto.id == opcion);
 
     let stockOriginal = arrayStocks[indice];
-    
-    console.log(stockOriginal,"stock original");
 
-     //Cambiar arrayseleccionados por carrito
+    console.log(stockOriginal, "stock original");
+
+    //Cambiar arrayseleccionados por carrito
     arrayDeSeleccionados.push(productosCopiados[indice]);
 
-    let quitarStock = productosCopiados[indice].stock -= 1;
-    let unidadesQuitadasAlStock = stockOriginal- quitarStock;
+    let quitarStock = (productosCopiados[indice].stock -= 1);
+    let unidadesQuitadasAlStock = stockOriginal - quitarStock;
 
-    let costoProducto = productos[indice].precio * unidadesQuitadasAlStock  ;
+    let costoProducto = productos[indice].precio * unidadesQuitadasAlStock;
 
     //let restaStock = quitarStock - stockOriginal;
 
-    console.log(productosCopiados[indice].stock, "este es el array que puede cambiar");
-    console.log(quitarStock,"Esta es la cantidad que queda de stock");
-    console.log(costoProducto,"Esto deberia ser el precio a pagar");
-    console.log(stockOriginal,"Este stock no debería cambiar")
+    console.log(
+      productosCopiados[indice].stock,
+      "este es el array que puede cambiar"
+    );
+    console.log(quitarStock, "Esta es la cantidad que queda de stock");
+    console.log(costoProducto, "Esto deberia ser el precio a pagar");
+    console.log(stockOriginal, "Este stock no debería cambiar");
 
     controlarStock(productos[indice].stock);
-
-    //stockOriginal=productosModificado[indice].stock
-
-    
   }
 
-/*   if(existeProducto){
-    alert("Este producto ya existe");
-  }
- */
- 
   return arrayDeSeleccionados;
 }
-
 
 //esta función cuenta las repeticiones en un array
 //para poder descontar del stock
 
-function contarRepeticiones (array){
-
+function contarRepeticiones(array) {
   let arrayId = [];
-  let repeticiones ={};
+  let repeticiones = {};
 
-  array.forEach(element => {
-
-    arrayId.push( element.id);
-    
+  array.forEach((element) => {
+    arrayId.push(element.id);
   });
-  
+
   for (const num of arrayId) {
     repeticiones[num] = repeticiones[num] ? repeticiones[num] + 1 : 1;
   }
-  
-  
-  console.log(repeticiones[1])
-  console.log(repeticiones[2])
 
-  console.log(repeticiones[3])
-  console.log(repeticiones[4])
+  console.log(repeticiones[1]);
+  console.log(repeticiones[2]);
 
-
+  console.log(repeticiones[3]);
+  console.log(repeticiones[4]);
 }
 
 // esta funcion agrega cards al carrito
-function agregarAlCarritoDom (productosSeleccionados){
-
-    crearCards(productosSeleccionados,sectionCarrito);
-    
-    
-
+function agregarAlCarritoDom(productosSeleccionados) {
+  crearCards(productosSeleccionados, sectionCarrito);
 }
 
- //Esta función avisa cuando el stock llega a cero.
+//Esta función avisa cuando el stock llega a cero.
 
-function controlarStock(stock) { //productos, opcionUsuario
-  /* let idElegido = productos.find((producto) => producto.id == opcionUsuario);
+function controlarStock(stock) {
   let mensaje;
-
-  if (idElegido.stock <= 0) {
+  if (stock <= 0) {
     mensaje = alert("Producto sin Stock");
-  } */
-
-  let mensaje;
-  if (stock <= 0){
-    mensaje = alert('Producto sin Stock')
-    stock = 0 ;
+    stock = 0;
   }
 
   return mensaje;
@@ -177,6 +141,7 @@ function quitarCantidadAlStock(cantidadUsuario, productos, opcionUsuario) {
 
 /*Esta función calcula el precio  a pagar en base a la cantidad elegida 
 por el usuario devuelve el precio a pagar */
+
 function calcularPrecio(cantidadUsuario, productos, opcionUsuario) {
   let precioPagar;
   for (let i = 0; i < productos.length; i++) {
@@ -188,55 +153,35 @@ function calcularPrecio(cantidadUsuario, productos, opcionUsuario) {
   return precioPagar;
 }
 
-
 /* IDEAS PARA EL CARRITO */
 
-function agregarAlCarrito(idProducto){
-
+function agregarAlCarrito(idProducto) {
   //revisar si el producto se repite en el carrito
   let productoRepetido;
 
-  productoRepetido = carritoUsuario.some((producto) => producto.id == idProducto);
+  productoRepetido = carritoUsuario.some(
+    (producto) => producto.id == idProducto
+  );
 
-   if(productoRepetido){
-
-     botonAgregarAlCarrito.forEach(boton => {
-
-      boton.onclick = () =>{
-
+  if (productoRepetido) {
+    botonAgregarAlCarrito.forEach((boton) => {
+      boton.onclick = () => {
         boton.disabled = true;
-        boton.style.display ="none";
-      }
-       
-     });
+        boton.style.display = "none";
+      };
+    });
+  } else {
+    let itemCoincideId = productos.find(
+      (producto) => producto.id == idProducto
+    );
 
-   
+    carritoUsuario.push({ ...itemCoincideId, unidadesElegidas: 1 });
+  }
 
-   
-
-  }else {
- 
-    let itemCoincideId = productos.find((producto) => producto.id == idProducto);
-
-    carritoUsuario.push(
-
-      {...itemCoincideId,
-      unidadesElegidas: 1,}
-      
-      
-      );
-    
-
-   } 
-
-   actualizarCarrito();
-   
-   
-
+  actualizarCarrito();
 }
 
-function actualizarCarrito(){
-
+function actualizarCarrito() {
   mostrarProductosCarrito();
 
   sumarUnidad();
@@ -250,76 +195,45 @@ function actualizarCarrito(){
   mostrarBotonAgregar();
 
   guardarCarritoUsuario();
-
-  
-  
-
- 
-  
 }
 
-function mostrarTotalGastado(){
+function mostrarTotalGastado() {
+  let precioTotal = 0;
+  let productosTotal = 0;
 
-  let precioTotal = 0 ;
-  let productosTotal = 0 ;
-
-  
-
-  carritoUsuario.forEach(producto => {
-
+  carritoUsuario.forEach((producto) => {
     precioTotal += producto.precio * producto.unidadesElegidas;
 
     productosTotal += producto.unidadesElegidas;
-    
   });
 
   seccionMostrarTotal.innerHTML = `<p>La cantidad de productos es : ${productosTotal}
     y el valor total es  $: ${precioTotal.toFixed(2)}
-  </p>`
+  </p>`;
 }
 
-function borrarProductoCarrito(){
-
+function borrarProductoCarrito() {
   /* carritoUsuario = carritoUsuario.filter((item)=>item.id != id );
 
   actualizarCarrito(); */
-  
-  let botonEliminar = document.querySelectorAll(".eliminar")
-  
- botonEliminar.forEach(boton => {
 
-  boton.onclick = () => {
+  let botonEliminar = document.querySelectorAll(".eliminar");
 
-    
-
-      id= boton.parentElement.id;
+  botonEliminar.forEach((boton) => {
+    boton.onclick = () => {
+      id = boton.parentElement.id;
       console.log(id);
 
-      carritoUsuario = carritoUsuario.filter((item)=>item.id != id )
-      /* let unidadesElegidas = item.unidadesElegidas;
+      carritoUsuario = carritoUsuario.filter((item) => item.id != id);
 
-      if(item.id == boton.parentElement.id && unidadesElegidas < item.stock){
-        unidadesElegidas++
-      }
-
-      return {
-        ...item,
-        unidadesElegidas,
-      } */
-    
-    actualizarCarrito();
-  }
-   
- }); 
+      actualizarCarrito();
+    };
+  });
 }
 
-
-function mostrarProductosCarrito(){
-
-  sectionCarrito.innerHTML ="";
-  carritoUsuario.forEach(item=> {
-
-    
+function mostrarProductosCarrito() {
+  sectionCarrito.innerHTML = "";
+  carritoUsuario.forEach((item) => {
     sectionCarrito.innerHTML += `<div class="card" style="width: 18rem;">
     <img src="${item.img}" class="card-img-top">
     <div class="card-body" id="${item.id}">
@@ -329,168 +243,93 @@ function mostrarProductosCarrito(){
     <button type="button" class="restar">-</button>
     <button type="button" class="btn btn-danger eliminar">X</button>
 
-    </div>`
-
-    
-    
+    </div>`;
   });
-
-  
-
-
-
 }
 
+function sumarUnidad() {
+  let botonSumar = document.querySelectorAll(".sumar");
 
-
-
-function sumarUnidad (){
-
-  let botonSumar = document.querySelectorAll(".sumar")
-  
- botonSumar.forEach(boton => {
-
-  boton.onclick = () => {
-
-    carritoUsuario = carritoUsuario.map((item) => {
-
-      let unidadesElegidas = item.unidadesElegidas;
-
-      if(item.id == boton.parentElement.id && unidadesElegidas < item.stock){
-        unidadesElegidas++
-      }
-
-      return {
-        ...item,
-        unidadesElegidas,
-      }
-    })
-    actualizarCarrito();
-  }
-   
- }); 
-
-
-}
-//Esta función resta una unidad por cada click
-function restarUnidad (){
-
-  let botonRestar = document.querySelectorAll(".restar")
-  
- botonRestar.forEach(boton => {
-
-  boton.onclick = () => { 
-
-    carritoUsuario = carritoUsuario.map((item) => {
-
-      let unidadesElegidas = item.unidadesElegidas;
-
-      if(item.id == boton.parentElement.id && unidadesElegidas>1){
-        unidadesElegidas--
-      }
-
-      return {
-        ...item,
-        unidadesElegidas,
-      }
-    })
-    actualizarCarrito();
-  }
-   
- }); 
-
-
-}
-
-/* $('.sumar').click(()=>{
-
-  carritoUsuario.map((item)=>{
-    if(item.id == id){
-      item.unidadesElegidas++
-    }
-  })
-}) */
-
-/* function sumarUnidad(idProducto){
-  let unidades;
-  $('.sumar').click(()=>{
-
-    
-
-    carritoUsuario.map((item)=>{
-      if(item.id == idProducto){
-        unidades = item.unidadesElegidas++
-      }
-
-      return {
-        ...item,
-        unidades,
-        
-      }
-      
-    })
-      
-  });
-
-  
-  
-    
-}
- */
-
-function sumarUnidadDesdeBotonOriginal (){
-
-  
-
-    
-    
-   botonAgregarAlCarrito.forEach(boton => {
-  
+  botonSumar.forEach((boton) => {
     boton.onclick = () => {
-  
       carritoUsuario = carritoUsuario.map((item) => {
-  
         let unidadesElegidas = item.unidadesElegidas;
-  
-        if(item.id == boton.parentElement.id && unidadesElegidas < item.stock){
-          unidadesElegidas++
+
+        if (
+          item.id == boton.parentElement.id &&
+          unidadesElegidas < item.stock
+        ) {
+          unidadesElegidas++;
         }
-  
+
         return {
           ...item,
           unidadesElegidas,
-        }
-      })
+        };
+      });
       actualizarCarrito();
-    }
-     
-   }); 
-  
-  
-  }
+    };
+  });
+}
+//Esta función resta una unidad por cada click
+function restarUnidad() {
+  let botonRestar = document.querySelectorAll(".restar");
 
-  function mostrarBotonAgregar (){
+  botonRestar.forEach((boton) => {
+    boton.onclick = () => {
+      carritoUsuario = carritoUsuario.map((item) => {
+        let unidadesElegidas = item.unidadesElegidas;
 
-    /*Esta lógica se puede mejorar
+        if (item.id == boton.parentElement.id && unidadesElegidas > 1) {
+          unidadesElegidas--;
+        }
+
+        return {
+          ...item,
+          unidadesElegidas,
+        };
+      });
+      actualizarCarrito();
+    };
+  });
+}
+
+function sumarUnidadDesdeBotonOriginal() {
+  botonAgregarAlCarrito.forEach((boton) => {
+    boton.onclick = () => {
+      carritoUsuario = carritoUsuario.map((item) => {
+        let unidadesElegidas = item.unidadesElegidas;
+
+        if (
+          item.id == boton.parentElement.id &&
+          unidadesElegidas < item.stock
+        ) {
+          unidadesElegidas++;
+        }
+
+        return {
+          ...item,
+          unidadesElegidas,
+        };
+      });
+      actualizarCarrito();
+    };
+  });
+}
+
+function mostrarBotonAgregar() {
+  /*Esta lógica se puede mejorar
     recorrer el carrito y habilitar el boton  cuyo id no está. */
 
-    if(carritoUsuario.length === 0){
-
-      botonAgregarAlCarrito.forEach(boton => {
-
-        boton.style.display = "";
-        
-      });
-    }
+  if (carritoUsuario.length === 0) {
+    botonAgregarAlCarrito.forEach((boton) => {
+      boton.style.display = "";
+    });
   }
+}
 
-
-  //Esta función guarda el carrito del usuario en el local storage
-  function guardarCarritoUsuario(){
-
-
-    let carritoJson = JSON.stringify(carritoUsuario);
-    localStorage.setItem('carritoUsuario', carritoJson);
-
-  }
-  
+//Esta función guarda el carrito del usuario en el local storage
+function guardarCarritoUsuario() {
+  let carritoJson = JSON.stringify(carritoUsuario);
+  localStorage.setItem("carritoUsuario", carritoJson);
+}
