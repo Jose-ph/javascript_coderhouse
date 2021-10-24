@@ -87,13 +87,57 @@ $('#banner').fadeOut(1000).fadeIn(1000);
 
 
 let botonPlastico = $('#plastico');
+let botonVidrio = $('#vidrio');
 
 botonPlastico.click(()=>{
 
+  let cards = document.querySelectorAll('.card')
+ cards = Array.from(cards).filter(card => card.className != "card plástico")
 
-  
+ //crear una función para actualizar tienda
 
-
-
+  mostrarCardsFiltradas(cards);
 
 });
+
+botonVidrio.click(()=>{
+
+  let cards = document.querySelectorAll('.card')
+ cards = Array.from(cards).filter(card => card.className != "card vidrio")
+
+ //crear una función para actualizar tienda
+
+  mostrarCardsFiltradas(cards);
+
+});
+
+
+
+
+
+function mostrarCardsFiltradas (cards){
+
+  sectionCards.innerHTML = "";
+  cards.forEach((card) => {
+    sectionCards.innerHTML += `<div class="card" style="width: 18rem;">
+    <img src="${card.img}" class="card-img-top">
+    <div class="card-body" id="${card.id}">
+    <h5 class="card-title">${card.id}-- Miel Pura</h5>
+    <p class="card-text"> Precio: ${card.precio}-- Unidades:${card.unidadesElegidas}</p>
+    <a class="btn btn-primary">Agregar al carrito</a>
+
+    </div>`;
+
+    
+  });
+}
+
+//<div class="card plástico" style="width: 18rem;">
+ // <img src="../images/logo3.png" class="card-img-top">
+   // <div class="card-body" id="1">
+     // <h5 class="card-title">1-- Miel Pura</h5>
+     // <p class="card-text"> Precio: $ 250-- stock: 50</p>
+     // <a class="btn btn-primary">Agregar al carrito</a>
+     // </div>
+     // </div>
+//
