@@ -77,6 +77,8 @@ function agregarAlCarrito(idProducto) {
 
 //Esta funcion muestra el carrito sin recargar la página
 function actualizarCarrito() {
+
+  
   mostrarProductosCarrito();
 
   sumarUnidad();
@@ -85,17 +87,22 @@ function actualizarCarrito() {
 
   borrarProductoCarrito();
 
+  
   mostrarTotalGastado();
 
   mostrarBotonAgregar();
 
   guardarCarritoUsuario();
 
+
+
   $('#carrito .card').hide().fadeIn(1000);
 }
 
-//Esta función muesrtra el total gastado.
+//Esta función muestra el total gastado.
 function mostrarTotalGastado() {
+
+  if (carritoUsuario.length > 0){
   let precioTotal = 0;
   let productosTotal = 0;
 
@@ -109,7 +116,7 @@ function mostrarTotalGastado() {
     y el valor total es  $: ${precioTotal.toFixed(2)}
   </p>`;
 
-  
+  }else {seccionMostrarTotal.innerHTML = ""}
 }
 
 //Esta funcion borra el producto del carrito
@@ -147,7 +154,11 @@ function mostrarProductosCarrito() {
     <button type="button" class="btn btn-danger eliminar">X</button>
 
     </div>`;
+
+    
   });
+
+ 
 }
 
 //Esta funcion  suma una unidad al carrito
@@ -178,7 +189,7 @@ function sumarUnidad() {
 }
 
 
-//Esta función resta una unidad por cada click
+//Esta función resta una unidad por cada click en "-"
 function restarUnidad() {
   let botonRestar = document.querySelectorAll(".restar");
 
@@ -203,6 +214,7 @@ function restarUnidad() {
 
 //Esa función permite volver a comprar al vaciar el carrito
 function mostrarBotonAgregar() {
+
   /*Esta lógica se puede mejorar
     recorrer el carrito y habilitar el boton  cuyo id no está. */
 

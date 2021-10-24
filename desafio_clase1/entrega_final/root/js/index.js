@@ -10,16 +10,12 @@ let opcionUsuario;
 
 const sectionCarrito = document.querySelector("#carrito");
 
-//Guarda stocks de productos
-let arrayStocks = [];
+let seccionMostrarTotal = document.querySelector("#total-carrito");
 
-for (let i = 0; i < productos.length; i++) {
-  arrayStocks.push(productos[i].stock);
-}
 
 botonAgregarAlCarrito.forEach((boton) => {
   boton.onclick = () => {
-    //let opcionUsuario;
+    
 
     opcionUsuario = boton.parentElement.id;
 
@@ -27,13 +23,9 @@ botonAgregarAlCarrito.forEach((boton) => {
 
     console.log(opcionUsuario);
 
-    /* sectionCarrito.innerHTML = ` <img src="../images/cesta-de-la-compra.png" alt="carrito de compras">`; */
 
-    //controlarStock(productos, opcionUsuario);
-
-    //revisarOpcionUsuario(opcionUsuario,productos);
-
-    boton.style.display = "none";
+    //boton.style.display = "none";
+    
   };
 });
 
@@ -46,7 +38,7 @@ let paisUsuario = $("#pais-usuario");
 let botonEnviar = $("#btn-enviar");
 let datosUsuario = [];
 
-let seccionMostrarTotal = document.querySelector("#total-carrito");
+
 
 // Se asegura que el DOM esté listo para manipular
 
