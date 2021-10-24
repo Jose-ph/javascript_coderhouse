@@ -35,6 +35,8 @@
       stock: 80,
       img: "../images/miel_carrito.jpeg"
     },
+
+  
   ];
  
   
