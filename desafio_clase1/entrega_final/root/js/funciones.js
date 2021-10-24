@@ -3,7 +3,7 @@
 function crearCards(productos, seccion) {
   for (let i = 0; i < productos.length; i++) {
     let cardDiv = document.createElement("div");
-    cardDiv.setAttribute("class", "card");
+    cardDiv.setAttribute("class", `card ${productos[i].envase}`);
     cardDiv.style.width = "18rem";
 
     let imgDiv = document.createElement("img");

@@ -79,3 +79,21 @@ actualizarCarrito();
 //Prueba animaciones
 
 $('#banner').fadeOut(1000).fadeIn(1000);
+
+
+
+
+///PRUEBA DE FILTRADO
+
+
+let botonPlastico = $('#plastico');
+
+botonPlastico.click(()=>{
+
+
+  
+
+
+
+
+});
