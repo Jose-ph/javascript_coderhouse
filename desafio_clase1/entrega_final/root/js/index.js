@@ -89,55 +89,61 @@ $('#banner').fadeOut(1000).fadeIn(1000);
 let botonPlastico = $('#plastico');
 let botonVidrio = $('#vidrio');
 
+let cards = document.querySelectorAll('.card');
+let cardsDuplicadas = Array.from(cards).map(cards=> cards); 
+
 botonPlastico.click(()=>{
 
-  let cards = document.querySelectorAll('.card')
- cards = Array.from(cards).filter(card => card.className != "card plástico")
+ 
+  
+ 
+ cardsDuplicadas = cardsDuplicadas.filter(card => card.className != "card vidrio")
 
+  console.log(cards);
  //crear una función para actualizar tienda
+  
+  mostrarCartaClon(cardsDuplicadas);
+ 
+ /* cardsDuplicadas = Array.from(cards).map(cards=> cards);  */
+ 
+ 
 
-  mostrarCardsFiltradas(cards);
+  //mostrarCardsFiltradas(cards);
 
 });
 
-botonVidrio.click(()=>{
+   botonVidrio.click(()=>{
 
-  let cards = document.querySelectorAll('.card')
- cards = Array.from(cards).filter(card => card.className != "card vidrio")
+    cardsDuplicadas = Array.from(cards).map(cards=> cards); 
+
+  //let cards = document.querySelectorAll('.card')
+   //let cardsDuplicadas = Array.from(cards).map(cards=> cards); 
+
+ cardsDuplicadas = cardsDuplicadas.filter(card => card.className != "card plástico")
 
  //crear una función para actualizar tienda
+   console.log(cards)
+   
+    
 
-  mostrarCardsFiltradas(cards);
+    mostrarCartaClon(cardsDuplicadas);
+      
+    
+      //cardsDuplicadas = Array.from(cards).map(cards=> cards); 
+ 
+    console.log(cardsDuplicadas)
+   
+  //mostrarCardsFiltradas(cards);
 
-});
+}); 
 
-
-
-
-
-function mostrarCardsFiltradas (cards){
+function mostrarCartaClon (cartas){
 
   sectionCards.innerHTML = "";
-  cards.forEach((card) => {
-    sectionCards.innerHTML += `<div class="card" style="width: 18rem;">
-    <img src="${card.img}" class="card-img-top">
-    <div class="card-body" id="${card.id}">
-    <h5 class="card-title">${card.id}-- Miel Pura</h5>
-    <p class="card-text"> Precio: ${card.precio}-- Unidades:${card.unidadesElegidas}</p>
-    <a class="btn btn-primary">Agregar al carrito</a>
+  //sectionCards.appendChild(cartas[0]);
+  //sectionCards.appendChild(cartas[1]);
+  console.log(cartas[0]);
+  console.log(cartas[1]);
+  cardsDuplicadas = Array.from(cards).map(cards=> cards); 
 
-    </div>`;
-
-    
-  });
 }
-
-//<div class="card plástico" style="width: 18rem;">
- // <img src="../images/logo3.png" class="card-img-top">
-   // <div class="card-body" id="1">
-     // <h5 class="card-title">1-- Miel Pura</h5>
-     // <p class="card-text"> Precio: $ 250-- stock: 50</p>
-     // <a class="btn btn-primary">Agregar al carrito</a>
-     // </div>
-     // </div>
-//
