@@ -88,9 +88,15 @@ $('#banner').fadeOut(1000).fadeIn(1000);
 
 let botonPlastico = $('#plastico');
 let botonVidrio = $('#vidrio');
+let botonTodos = $('#todos');
 
 let cards = document.querySelectorAll('.card');
 let cardsDuplicadas = Array.from(cards).map(cards=> cards); 
+
+botonTodos.click(()=>{
+    sectionCards.innerHTML ="";
+    crearCards(productos,sectionCards);
+})
 
 botonPlastico.click(()=>{
 
@@ -140,8 +146,8 @@ botonPlastico.click(()=>{
 function mostrarCartaClon (cartas){
 
   sectionCards.innerHTML = "";
-  //sectionCards.appendChild(cartas[0]);
-  //sectionCards.appendChild(cartas[1]);
+  sectionCards.appendChild(cartas[0]);
+  sectionCards.appendChild(cartas[1]);
   console.log(cartas[0]);
   console.log(cartas[1]);
   cardsDuplicadas = Array.from(cards).map(cards=> cards); 
