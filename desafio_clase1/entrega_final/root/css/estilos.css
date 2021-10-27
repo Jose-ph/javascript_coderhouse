@@ -20,7 +20,7 @@
 
 body{
     
-    /*font-family: 'Pacifico', cursive;*/
+    font-family: 'Pacifico', cursive;
     
     overflow-x: hidden;
 }
@@ -172,9 +172,14 @@ h1 {
     justify-content: center;
 }
 
+.parrafo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-family: 'Bungee',cursive;
 
-
-
+}
 
 
 
