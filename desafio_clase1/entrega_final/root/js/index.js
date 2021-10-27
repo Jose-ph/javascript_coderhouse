@@ -94,8 +94,15 @@ let cards = document.querySelectorAll('.card');
 let cardsDuplicadas = Array.from(cards).map(cards=> cards); 
 
 botonTodos.click(()=>{
-    sectionCards.innerHTML ="";
-    crearCards(productos,sectionCards);
+    /* sectionCards.innerHTML ="";
+    crearCards(productos,sectionCards); */
+    cardsDuplicadas = cardsDuplicadas.filter(card => card.className)
+
+  console.log(cards);
+ //crear una función para actualizar tienda
+  
+  mostrarCartas(cardsDuplicadas);
+
 })
 
 botonPlastico.click(()=>{
@@ -148,6 +155,19 @@ function mostrarCartaClon (cartas){
   sectionCards.innerHTML = "";
   sectionCards.appendChild(cartas[0]);
   sectionCards.appendChild(cartas[1]);
+  console.log(cartas[0]);
+  console.log(cartas[1]);
+  cardsDuplicadas = Array.from(cards).map(cards=> cards); 
+
+}
+
+function mostrarCartas(cartas){
+
+  sectionCards.innerHTML = "";
+  sectionCards.appendChild(cartas[0]);
+  sectionCards.appendChild(cartas[1]);
+  sectionCards.appendChild(cartas[2]);
+  sectionCards.appendChild(cartas[3]);
   console.log(cartas[0]);
   console.log(cartas[1]);
   cardsDuplicadas = Array.from(cards).map(cards=> cards); 
