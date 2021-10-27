@@ -41,7 +41,7 @@ let datosUsuario = [];
 
 
 // Se asegura que el DOM esté listo para manipular
-
+/* 
 $(document).ready(() => console.log("El DOM está listo"));
 
 botonEnviar.click(() => {
@@ -66,15 +66,18 @@ botonEnviar.click(() => {
     } else console.log("ERROR DE ENVÍO");
   });
 });
+ */
+
 
 //Estas dos líneas  muestran el carrito guardado en el storage
 let carritoUsuario = JSON.parse(localStorage.getItem("carritoUsuario")) || [];
 actualizarCarrito();
 
 
+//Prueba llamado a API DOLAR
 
-
-
+const URLGET = "https://www.dolarsi.com/api/api.php?type=valoresprincipales"
+$('.dolar').click(()=> alert('Soy DOlar'))
 
 //Prueba animaciones
 

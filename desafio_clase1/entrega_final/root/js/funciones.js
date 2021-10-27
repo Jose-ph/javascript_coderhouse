@@ -148,10 +148,13 @@ function mostrarProductosCarrito() {
     <img src="${item.img}" class="card-img-top">
     <div class="card-body" id="${item.id}">
     <h5 class="card-title">${item.id}-- Miel Pura</h5>
-    <p class="card-text"> Precio: ${item.precio}-- Unidades:${item.unidadesElegidas}</p>
+    <p class="card-text"> Precio:ARS ${item.precio}-- Unidades:${item.unidadesElegidas}</p>
     <button type="button" class ="sumar btn btn-success">+</button>
     <button type="button" class="restar btn btn-info">-</button>
     <button type="button" class="btn btn-danger eliminar">X</button>
+    <button type="button" class="btn btn-danger dolar">USD</button>
+    
+
 
     </div>`;
 
