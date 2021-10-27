@@ -77,7 +77,26 @@ actualizarCarrito();
 //Prueba llamado a API DOLAR
 
 const URLGET = "https://www.dolarsi.com/api/api.php?type=valoresprincipales"
-$('.dolar').click(()=> alert('Soy DOlar'))
+
+
+
+$('.dolar').each(function(){
+
+  $(this).click(()=>{
+    $.get(URLGET,function(respuesta,estado){
+
+      if(estado=== "success"){
+        let datosDolarOficial = respuesta
+        $('.parrafo').text(`${datosDolarOficial[0].casa.venta}`)
+      }
+    })
+  })
+
+})
+
+  
+
+
 
 //Prueba animaciones
 
