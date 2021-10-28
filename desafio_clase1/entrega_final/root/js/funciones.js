@@ -129,7 +129,7 @@ function mostrarTotalGastado() {
       y el valor total es  $: ${precioTotal.toFixed(2)}
       </p>`;
 
-      cambiarTipoDeCambio()
+      pasarADolar()
       pasarAPesos()
       return precioTotal
       
