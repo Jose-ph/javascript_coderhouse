@@ -72,7 +72,11 @@ function agregarAlCarrito(idProducto) {
     carritoUsuario.push({ ...itemCoincideId, unidadesElegidas: 1 });
   }
 
+  
+
   actualizarCarrito();
+  
+
 }
 
 //Esta funcion muestra el carrito sin recargar la página
@@ -84,7 +88,7 @@ function actualizarCarrito() {
   sumarUnidad();
 
   restarUnidad();
-
+ 
   borrarProductoCarrito();
 
   
@@ -93,6 +97,10 @@ function actualizarCarrito() {
   mostrarBotonAgregar();
 
   guardarCarritoUsuario();
+
+  
+  
+  
 
 
 
@@ -115,12 +123,19 @@ function mostrarTotalGastado() {
   seccionMostrarTotal.innerHTML = `
 
       <button type="button" class="btn btn-danger dolar">Pasar total a USD</button>
+      <button type="button" class="btn btn-info pesos">Pasar total a Pesos</button>
     
       <p class="parrafo">La cantidad de productos es : ${productosTotal}
       y el valor total es  $: ${precioTotal.toFixed(2)}
       </p>`;
 
+      cambiarTipoDeCambio()
+      pasarAPesos()
+      return precioTotal
+      
   }else {seccionMostrarTotal.innerHTML = ""}
+
+  
 }
 
 //Esta funcion borra el producto del carrito

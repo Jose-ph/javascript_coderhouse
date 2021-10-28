@@ -23,6 +23,7 @@ botonAgregarAlCarrito.forEach((boton) => {
 
     console.log(opcionUsuario);
 
+   
 
     //boton.style.display = "none";
     
@@ -78,7 +79,7 @@ actualizarCarrito();
 
 const URLGET = "https://www.dolarsi.com/api/api.php?type=valoresprincipales"
 
-
+function pasarADolar(){
 
 $('.dolar').click(()=>{
       console.log("click dolar")
@@ -89,60 +90,41 @@ $('.dolar').click(()=>{
         //$('.parrafo').text(`${datosDolarOficial[0].casa.venta}`)
         let tipoCambioOficial = parseInt( datosDolarOficial[0].casa.venta)
         console.log(respuesta)
-        if (carritoUsuario.length > 0){
-          let precioTotal = 0;
-          let productosTotal = 0;
-        
-          carritoUsuario.forEach((producto) => {
-            precioTotal += producto.precio * producto.unidadesElegidas;
-        
-            productosTotal += producto.unidadesElegidas;
-          });
-        
-          seccionMostrarTotal.innerHTML = `
-        
-              <button type="button" class="btn btn-danger dolar">Pasar total a USD</button>
-              <button type="button" class="btn btn-info peso">Pasar total a Peso</button>
-            
-              <p class="parrafo">La cantidad de productos es : ${productosTotal}
-              y el valor total es  u$d: ${(precioTotal.toFixed(2) / tipoCambioOficial).toFixed(2)}
-              </p>`;
 
-              //Pasar  a pesos
-  $('.peso').click(()=>{
-    
+        let precioTotal =  parseInt (mostrarTotalGastado())/tipoCambioOficial
 
-     
-    if (carritoUsuario.length > 0){
-      let precioTotal = 0;
-      let productosTotal = 0;
-    
-      carritoUsuario.forEach((producto) => {
-        precioTotal += producto.precio * producto.unidadesElegidas;
-    
-        productosTotal += producto.unidadesElegidas;
-      });
-    
-      seccionMostrarTotal.innerHTML = `
-    
-          <button type="button" class="btn btn-danger dolar">Pasar total a USD</button>
-          <button type="button" class="btn btn-info peso">Pasar total a peso</button>
+       $('.parrafo').text(`El total en u$d es : ${precioTotal.toFixed(2)} `);
+
+      
+      
         
-          <p class="parrafo">La cantidad de productos es : ${productosTotal}
-          y el valor total es  $: ${precioTotal.toFixed(2)}
-          </p>`;
-    
-      }else {seccionMostrarTotal.innerHTML = ""}
-  
-})
-        
-          }else {seccionMostrarTotal.innerHTML = ""}
-      }
+      } else{console.log("No llegaron los datos")}
     })
 
+  
 
   })
 
+  
+}
+
+function pasarAPesos(){
+  $('.pesos').click(()=>{
+
+    console.log("click peso")
+
+    let precioTotal =  parseInt (mostrarTotalGastado())
+
+    $('.parrafo').text(`El total en $ es : ${precioTotal.toFixed(2)} `);
+
+    
+    
+      
+})
+
+
+
+}
   
 
 
@@ -251,3 +233,4 @@ function mostrarCartas(cartas){
   cardsDuplicadas = Array.from(cards).map(cards=> cards); 
 
 }
+
