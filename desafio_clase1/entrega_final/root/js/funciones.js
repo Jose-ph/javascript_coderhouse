@@ -112,9 +112,13 @@ function mostrarTotalGastado() {
     productosTotal += producto.unidadesElegidas;
   });
 
-  seccionMostrarTotal.innerHTML = `<p class="parrafo">La cantidad de productos es : ${productosTotal}
-    y el valor total es  $: ${precioTotal.toFixed(2)}
-  </p>`;
+  seccionMostrarTotal.innerHTML = `
+
+      <button type="button" class="btn btn-danger dolar">Pasar total a USD</button>
+    
+      <p class="parrafo">La cantidad de productos es : ${productosTotal}
+      y el valor total es  $: ${precioTotal.toFixed(2)}
+      </p>`;
 
   }else {seccionMostrarTotal.innerHTML = ""}
 }
@@ -152,7 +156,6 @@ function mostrarProductosCarrito() {
     <button type="button" class ="sumar btn btn-success">+</button>
     <button type="button" class="restar btn btn-info">-</button>
     <button type="button" class="btn btn-danger eliminar">X</button>
-    <button type="button" class="btn btn-danger dolar">USD</button>
     
 
 

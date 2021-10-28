@@ -80,19 +80,75 @@ const URLGET = "https://www.dolarsi.com/api/api.php?type=valoresprincipales"
 
 
 
-$('.dolar').each(function(){
-
-  $(this).click(()=>{
+$('.dolar').click(()=>{
+      console.log("click dolar")
     $.get(URLGET,function(respuesta,estado){
 
       if(estado=== "success"){
         let datosDolarOficial = respuesta
-        $('.parrafo').text(`${datosDolarOficial[0].casa.venta}`)
+        //$('.parrafo').text(`${datosDolarOficial[0].casa.venta}`)
+        let tipoCambioOficial = parseInt( datosDolarOficial[0].casa.venta)
+        console.log(respuesta)
+        if (carritoUsuario.length > 0){
+          let precioTotal = 0;
+          let productosTotal = 0;
+        
+          carritoUsuario.forEach((producto) => {
+            precioTotal += producto.precio * producto.unidadesElegidas;
+        
+            productosTotal += producto.unidadesElegidas;
+          });
+        
+          seccionMostrarTotal.innerHTML = `
+        
+              <button type="button" class="btn btn-danger dolar">Pasar total a USD</button>
+              <button type="button" class="btn btn-info peso">Pasar total a Peso</button>
+            
+              <p class="parrafo">La cantidad de productos es : ${productosTotal}
+              y el valor total es  u$d: ${(precioTotal.toFixed(2) / tipoCambioOficial).toFixed(2)}
+              </p>`;
+
+              //Pasar  a pesos
+  $('.peso').click(()=>{
+    
+
+     
+    if (carritoUsuario.length > 0){
+      let precioTotal = 0;
+      let productosTotal = 0;
+    
+      carritoUsuario.forEach((producto) => {
+        precioTotal += producto.precio * producto.unidadesElegidas;
+    
+        productosTotal += producto.unidadesElegidas;
+      });
+    
+      seccionMostrarTotal.innerHTML = `
+    
+          <button type="button" class="btn btn-danger dolar">Pasar total a USD</button>
+          <button type="button" class="btn btn-info peso">Pasar total a peso</button>
+        
+          <p class="parrafo">La cantidad de productos es : ${productosTotal}
+          y el valor total es  $: ${precioTotal.toFixed(2)}
+          </p>`;
+    
+      }else {seccionMostrarTotal.innerHTML = ""}
+  
+})
+        
+          }else {seccionMostrarTotal.innerHTML = ""}
       }
     })
+
+
   })
 
-})
+  
+
+
+  
+
+
 
   
 
