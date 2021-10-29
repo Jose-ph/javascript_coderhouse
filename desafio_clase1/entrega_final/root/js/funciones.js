@@ -251,3 +251,81 @@ function guardarCarritoUsuario() {
   let carritoJson = JSON.stringify(carritoUsuario);
   localStorage.setItem("carritoUsuario", carritoJson);
 }
+
+
+//Estas funciones manejan el tipo de cambio.
+
+function pasarADolar(){
+
+  $('.dolar').click(()=>{
+        console.log("click dolar")
+      $.get(URLGET,function(respuesta,estado){
+  
+        if(estado=== "success"){
+          let datosDolarOficial = respuesta
+          //$('.parrafo').text(`${datosDolarOficial[0].casa.venta}`)
+          let tipoCambioOficial = parseInt( datosDolarOficial[0].casa.venta)
+          console.log(respuesta)
+  
+          let precioTotal =  parseInt (mostrarTotalGastado())/tipoCambioOficial
+  
+         $('.parrafo').text(`El total en u$d es : ${precioTotal.toFixed(2)} `);
+  
+        
+        
+          
+        } else{console.log("No llegaron los datos")}
+      })
+  
+    
+  
+    })
+  
+    
+  }
+  
+  function pasarAPesos(){
+    $('.pesos').click(()=>{
+  
+      console.log("click peso")
+  
+      let precioTotal =  parseInt (mostrarTotalGastado())
+  
+      $('.parrafo').text(`El total en $ es : ${precioTotal.toFixed(2)} `);
+  
+      
+      
+        
+  })
+  
+  
+  
+  }
+
+
+
+//Esta funcioón muestra las cartas del arraycopiado
+function mostrarCartaClon (cartas){
+
+  sectionCards.innerHTML = "";
+  sectionCards.appendChild(cartas[0]);
+  sectionCards.appendChild(cartas[1]);
+  console.log(cartas[0]);
+  console.log(cartas[1]);
+  cardsDuplicadas = Array.from(cards).map(cards=> cards); 
+
+}
+//Esta función muestra todas las cartas
+function mostrarCartas(cartas){
+
+  sectionCards.innerHTML = "";
+  sectionCards.appendChild(cartas[0]);
+  sectionCards.appendChild(cartas[1]);
+  sectionCards.appendChild(cartas[2]);
+  sectionCards.appendChild(cartas[3]);
+  console.log(cartas[0]);
+  console.log(cartas[1]);
+  cardsDuplicadas = Array.from(cards).map(cards=> cards); 
+
+}
+
