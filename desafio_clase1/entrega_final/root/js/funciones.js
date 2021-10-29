@@ -41,11 +41,8 @@ function crearCards(productos, seccion) {
 
     //sectionPrueba.appendChild(cardDiv);
     seccion.appendChild(cardDiv);
-
-    
   }
 }
-
 
 //Esta función agrega los productos al carrito
 
@@ -72,55 +69,41 @@ function agregarAlCarrito(idProducto) {
     carritoUsuario.push({ ...itemCoincideId, unidadesElegidas: 1 });
   }
 
-  
-
   actualizarCarrito();
-  
-
 }
 
 //Esta funcion muestra el carrito sin recargar la página
 function actualizarCarrito() {
-
-  
   mostrarProductosCarrito();
 
   sumarUnidad();
 
   restarUnidad();
- 
+
   borrarProductoCarrito();
 
-  
   mostrarTotalGastado();
 
   mostrarBotonAgregar();
 
   guardarCarritoUsuario();
 
-  
-  
-  
-
-
-
-  $('#carrito .card').hide().fadeIn(1000);
+  $("#carrito .card").hide().fadeIn(1000);
 }
 
 //Esta función muestra el total gastado.
 function mostrarTotalGastado() {
+  if (carritoUsuario.length > 0) {
+    let precioTotal = 0;
+    let productosTotal = 0;
 
-  if (carritoUsuario.length > 0){
-  let precioTotal = 0;
-  let productosTotal = 0;
+    carritoUsuario.forEach((producto) => {
+      precioTotal += producto.precio * producto.unidadesElegidas;
 
-  carritoUsuario.forEach((producto) => {
-    precioTotal += producto.precio * producto.unidadesElegidas;
+      productosTotal += producto.unidadesElegidas;
+    });
 
-    productosTotal += producto.unidadesElegidas;
-  });
-
-  seccionMostrarTotal.innerHTML = `
+    seccionMostrarTotal.innerHTML = `
 
       <button type="button" class="btn btn-danger dolar">Pasar total a USD</button>
       <button type="button" class="btn btn-info pesos">Pasar total a Pesos</button>
@@ -129,13 +112,12 @@ function mostrarTotalGastado() {
       y el valor total es  $: ${precioTotal.toFixed(2)}
       </p>`;
 
-      pasarADolar()
-      pasarAPesos()
-      return precioTotal
-      
-  }else {seccionMostrarTotal.innerHTML = ""}
-
-  
+    pasarADolar();
+    pasarAPesos();
+    return precioTotal;
+  } else {
+    seccionMostrarTotal.innerHTML = "";
+  }
 }
 
 //Esta funcion borra el producto del carrito
@@ -175,11 +157,7 @@ function mostrarProductosCarrito() {
 
 
     </div>`;
-
-    
   });
-
- 
 }
 
 //Esta funcion  suma una unidad al carrito
@@ -209,7 +187,6 @@ function sumarUnidad() {
   });
 }
 
-
 //Esta función resta una unidad por cada click en "-"
 function restarUnidad() {
   let botonRestar = document.querySelectorAll(".restar");
@@ -235,7 +212,6 @@ function restarUnidad() {
 
 //Esa función permite volver a comprar al vaciar el carrito
 function mostrarBotonAgregar() {
-
   /*Esta lógica se puede mejorar
     recorrer el carrito y habilitar el boton  cuyo id no está. */
 
@@ -252,72 +228,49 @@ function guardarCarritoUsuario() {
   localStorage.setItem("carritoUsuario", carritoJson);
 }
 
-
 //Estas funciones manejan el tipo de cambio.
 
-function pasarADolar(){
+function pasarADolar() {
+  $(".dolar").click(() => {
+    console.log("click dolar");
+    $.get(URLGET, function (respuesta, estado) {
+      if (estado === "success") {
+        let datosDolarOficial = respuesta;
+        //$('.parrafo').text(`${datosDolarOficial[0].casa.venta}`)
+        let tipoCambioOficial = parseInt(datosDolarOficial[0].casa.venta);
+        console.log(respuesta);
 
-  $('.dolar').click(()=>{
-        console.log("click dolar")
-      $.get(URLGET,function(respuesta,estado){
-  
-        if(estado=== "success"){
-          let datosDolarOficial = respuesta
-          //$('.parrafo').text(`${datosDolarOficial[0].casa.venta}`)
-          let tipoCambioOficial = parseInt( datosDolarOficial[0].casa.venta)
-          console.log(respuesta)
-  
-          let precioTotal =  parseInt (mostrarTotalGastado())/tipoCambioOficial
-  
-         $('.parrafo').text(`El total en u$d es : ${precioTotal.toFixed(2)} `);
-  
-        
-        
-          
-        } else{console.log("No llegaron los datos")}
-      })
-  
-    
-  
-    })
-  
-    
-  }
-  
-  function pasarAPesos(){
-    $('.pesos').click(()=>{
-  
-      console.log("click peso")
-  
-      let precioTotal =  parseInt (mostrarTotalGastado())
-  
-      $('.parrafo').text(`El total en $ es : ${precioTotal.toFixed(2)} `);
-  
-      
-      
-        
-  })
-  
-  
-  
-  }
+        let precioTotal = parseInt(mostrarTotalGastado()) / tipoCambioOficial;
 
+        $(".parrafo").text(`El total en u$d es : ${precioTotal.toFixed(2)} `);
+      } else {
+        console.log("No llegaron los datos");
+      }
+    });
+  });
+}
 
+function pasarAPesos() {
+  $(".pesos").click(() => {
+    console.log("click peso");
+
+    let precioTotal = parseInt(mostrarTotalGastado());
+
+    $(".parrafo").text(`El total en $ es : ${precioTotal.toFixed(2)} `);
+  });
+}
 
 //Esta funcioón muestra las cartas del arraycopiado
-function mostrarCartaClon (cartas){
-
+function mostrarCartaClon(cartas) {
   sectionCards.innerHTML = "";
   sectionCards.appendChild(cartas[0]);
   sectionCards.appendChild(cartas[1]);
   console.log(cartas[0]);
   console.log(cartas[1]);
-  cardsDuplicadas = Array.from(cards).map(cards=> cards); 
-
+  cardsDuplicadas = Array.from(cards).map((cards) => cards);
 }
 //Esta función muestra todas las cartas
-function mostrarCartas(cartas){
-
+function mostrarCartas(cartas) {
   sectionCards.innerHTML = "";
   sectionCards.appendChild(cartas[0]);
   sectionCards.appendChild(cartas[1]);
@@ -325,7 +278,5 @@ function mostrarCartas(cartas){
   sectionCards.appendChild(cartas[3]);
   console.log(cartas[0]);
   console.log(cartas[1]);
-  cardsDuplicadas = Array.from(cards).map(cards=> cards); 
-
+  cardsDuplicadas = Array.from(cards).map((cards) => cards);
 }
-
